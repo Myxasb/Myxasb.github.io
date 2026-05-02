@@ -1,1 +1,66 @@
-test
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Трактати</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; }
+    .level { display: flex; justify-content: center; margin: 10px; }
+    .tractate {
+      border: 1px solid #333;
+      padding: 10px;
+      margin: 5px;
+      cursor: pointer;
+      position: relative;
+    }
+    .tooltip {
+      visibility: hidden;
+      background: #eee;
+      border: 1px solid #333;
+      padding: 5px;
+      position: absolute;
+      top: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+    }
+    .tractate:hover .tooltip {
+      visibility: visible;
+    }
+  </style>
+</head>
+<body>
+  <h1>Піраміда трактатів</h1>
+
+  <div class="level">
+    <div class="tractate" onclick="showCraft(1)">
+      Трактат 1
+      <div class="tooltip">Характеристики: сила +5</div>
+    </div>
+  </div>
+
+  <div class="level">
+    <div class="tractate" onclick="showCraft(2)">
+      Трактат 2
+      <div class="tooltip">Характеристики: сила +10</div>
+    </div>
+    <div class="tractate" onclick="showCraft(2)">
+      Трактат 2
+      <div class="tooltip">Характеристики: витривалість +10</div>
+    </div>
+  </div>
+
+  <div id="craftInfo"></div>
+
+  <script>
+    function showCraft(level) {
+      const info = {
+        1: "Крафтиться з 4 уривків",
+        2: "Крафтиться з 3 трактатів 1 рівня",
+        3: "Крафтиться з 3 трактатів 2 рівня"
+      };
+      document.getElementById("craftInfo").innerText = info[level] || "Немає даних";
+    }
+  </script>
+</body>
+</html>
