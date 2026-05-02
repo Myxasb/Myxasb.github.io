@@ -2,93 +2,76 @@
 <html lang="uk">
 <head>
   <meta charset="UTF-8">
-  <title>Піраміда трактатів</title>
+  <title>Повний шлях крафту</title>
   <style>
     body { font-family: sans-serif; text-align: center; }
-    .level { display: flex; justify-content: center; margin: 20px 0; }
-    .tractate {
-      border: 1px solid #333;
+    .tractate-name {
+      display: inline-block;
+      margin: 10px;
       padding: 10px;
-      margin: 5px;
-      cursor: pointer;
-      position: relative;
-      background: #f9f9f9;
-    }
-    .tooltip {
-      visibility: hidden;
-      background: #eee;
       border: 1px solid #333;
-      padding: 5px;
-      position: absolute;
-      top: -40px;
-      left: 50%;
-      transform: translateX(-50%);
-      white-space: nowrap;
+      cursor: pointer;
     }
-    .tractate:hover .tooltip {
-      visibility: visible;
-    }
-    .craft-structure {
-      display: none;
-      margin: 10px auto;
+    .craft-path {
+      margin: 15px auto;
       border: 1px solid #666;
       padding: 10px;
-      width: 60%;
+      width: 70%;
       text-align: left;
     }
+    ul { list-style: none; padding-left: 20px; }
+    li { margin: 5px 0; }
   </style>
 </head>
 <body>
-  <h1>Піраміда трактатів 2</h1>
-  <div id="pyramid"></div>
+  <h1>Крафт трактатів</h1>
+  <div id="tractateList"></div>
   <div id="craftContainer"></div>
 
   <script>
+    let data;
+
     async function loadData() {
       const response = await fetch('data.json');
-      const data = await response.json();
+      data = await response.json();
 
-      const pyramid = document.getElementById('pyramid');
-      const container = document.getElementById('craftContainer');
-
-      data.levels.forEach(level => {
-        const row = document.createElement('div');
-        row.className = 'level';
-
-        level.tractates.forEach(t => {
-          const block = document.createElement('div');
-          block.className = 'tractate';
-          block.textContent = t.name;
-
-          const tooltip = document.createElement('div');
-          tooltip.className = 'tooltip';
-          tooltip.textContent = t.stats;
-          block.appendChild(tooltip);
-
-          block.onclick = () => toggleCraft(t.name, t);
-
-          row.appendChild(block);
-
-          const craftBlock = document.createElement('div');
-          craftBlock.id = t.name;
-          craftBlock.className = 'craft-structure';
-          craftBlock.innerHTML = `
-            <h3>${t.name}</h3>
-            <p><b>Характеристики:</b> ${t.stats}</p>
-            <h4>Крафт:</h4>
-            <ul>${t.craft.map(c => `<li>${c}</li>`).join('')}</ul>
-          `;
-          container.appendChild(craftBlock);
-        });
-
-        pyramid.appendChild(row);
-        alert("success");
+      const list = document.getElementById('tractateList');
+      Object.keys(data.tractates).forEach(id => {
+        if(id !== "fragment"){ // не показуємо уривок як кнопку
+          const btn = document.createElement('div');
+          btn.className = 'tractate-name';
+          btn.textContent = data.tractates[id].name;
+          btn.onclick = () => showPath(id);
+          list.appendChild(btn);
+        }
       });
     }
 
-    function toggleCraft(id, t) {
-      const block = document.getElementById(id);
-      block.style.display = (block.style.display === "block") ? "none" : "block";
+    function buildPath(id) {
+      const t = data.tractates[id];
+      if (!t) return null;
+
+      const li = document.createElement('li');
+      li.textContent = t.name;
+
+      if (t.craft.length > 0) {
+        const ul = document.createElement('ul');
+        t.craft.forEach(childId => {
+          const child = buildPath(childId);
+          if (child) ul.appendChild(child);
+        });
+        li.appendChild(ul);
+      }
+      return li;
+    }
+
+    function showPath(id) {
+      const container = document.getElementById('craftContainer');
+      container.innerHTML = "";
+      const root = buildPath(id);
+      const ul = document.createElement('ul');
+      ul.appendChild(root);
+      container.appendChild(ul);
     }
 
     loadData();
