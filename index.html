@@ -2,65 +2,69 @@
 <html lang="uk">
 <head>
   <meta charset="UTF-8">
-  <title>Трактати</title>
+  <title>Крафт трактатів</title>
   <style>
     body { font-family: sans-serif; text-align: center; }
-    .level { display: flex; justify-content: center; margin: 10px; }
-    .tractate {
-      border: 1px solid #333;
+    .tractate-name {
+      display: inline-block;
+      margin: 10px;
       padding: 10px;
-      margin: 5px;
-      cursor: pointer;
-      position: relative;
-    }
-    .tooltip {
-      visibility: hidden;
-      background: #eee;
       border: 1px solid #333;
-      padding: 5px;
-      position: absolute;
-      top: -40px;
-      left: 50%;
-      transform: translateX(-50%);
-      white-space: nowrap;
+      cursor: pointer;
     }
-    .tractate:hover .tooltip {
-      visibility: visible;
+    .craft-structure {
+      display: none;
+      margin: 15px auto;
+      border: 1px solid #666;
+      padding: 10px;
+      width: 60%;
+      text-align: left;
     }
+    .craft-structure ul { list-style: none; padding-left: 0; }
+    .craft-structure li { margin: 5px 0; }
   </style>
 </head>
 <body>
-  <h1>Піраміда трактатів</h1>
-
-  <div class="level">
-    <div class="tractate" onclick="showCraft(1)">
-      Трактат 1
-      <div class="tooltip">Характеристики: сила +5</div>
-    </div>
-  </div>
-
-  <div class="level">
-    <div class="tractate" onclick="showCraft(2)">
-      Трактат 2
-      <div class="tooltip">Характеристики: сила +10</div>
-    </div>
-    <div class="tractate" onclick="showCraft(2)">
-      Трактат 2
-      <div class="tooltip">Характеристики: витривалість +10</div>
-    </div>
-  </div>
-
-  <div id="craftInfo"></div>
+  <h1>Трактати</h1>
+  <div id="tractateList"></div>
+  <div id="craftContainer"></div>
 
   <script>
-    function showCraft(level) {
-      const info = {
-        1: "Крафтиться з 4 уривків",
-        2: "Крафтиться з 3 трактатів 1 рівня",
-        3: "Крафтиться з 3 трактатів 2 рівня"
-      };
-      document.getElementById("craftInfo").innerText = info[level] || "Немає даних";
+    async function loadData() {
+      const response = await fetch('data.json');
+      const data = await response.json();
+
+      const list = document.getElementById('tractateList');
+      const container = document.getElementById('craftContainer');
+
+      data.tractates.forEach(t => {
+        // кнопка з назвою
+        const btn = document.createElement('div');
+        btn.className = 'tractate-name';
+        btn.textContent = t.name;
+        btn.onclick = () => toggleCraft(t);
+        list.appendChild(btn);
+
+        // блок зі структурою
+        const block = document.createElement('div');
+        block.id = t.id;
+        block.className = 'craft-structure';
+        block.innerHTML = `
+          <h3>${t.name}</h3>
+          <p><b>Характеристики:</b> ${t.stats}</p>
+          <h4>Крафт:</h4>
+          <ul>${t.craft.map(c => `<li>${c}</li>`).join('')}</ul>
+        `;
+        container.appendChild(block);
+      });
     }
+
+    function toggleCraft(t) {
+      const block = document.getElementById(t.id);
+      block.style.display = (block.style.display === "block") ? "none" : "block";
+    }
+
+    loadData();
   </script>
 </body>
 </html>
