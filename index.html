@@ -2,31 +2,45 @@
 <html lang="uk">
 <head>
   <meta charset="UTF-8">
-  <title>Крафт трактатів</title>
+  <title>Піраміда трактатів</title>
   <style>
     body { font-family: sans-serif; text-align: center; }
-    .tractate-name {
-      display: inline-block;
-      margin: 10px;
-      padding: 10px;
+    .level { display: flex; justify-content: center; margin: 20px 0; }
+    .tractate {
       border: 1px solid #333;
+      padding: 10px;
+      margin: 5px;
       cursor: pointer;
+      position: relative;
+      background: #f9f9f9;
+    }
+    .tooltip {
+      visibility: hidden;
+      background: #eee;
+      border: 1px solid #333;
+      padding: 5px;
+      position: absolute;
+      top: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+    }
+    .tractate:hover .tooltip {
+      visibility: visible;
     }
     .craft-structure {
       display: none;
-      margin: 15px auto;
+      margin: 10px auto;
       border: 1px solid #666;
       padding: 10px;
       width: 60%;
       text-align: left;
     }
-    .craft-structure ul { list-style: none; padding-left: 0; }
-    .craft-structure li { margin: 5px 0; }
   </style>
 </head>
 <body>
-  <h1>Трактати</h1>
-  <div id="tractateList"></div>
+  <h1>Піраміда трактатів</h1>
+  <div id="pyramid"></div>
   <div id="craftContainer"></div>
 
   <script>
@@ -34,33 +48,45 @@
       const response = await fetch('data.json');
       const data = await response.json();
 
-      const list = document.getElementById('tractateList');
+      const pyramid = document.getElementById('pyramid');
       const container = document.getElementById('craftContainer');
 
-      data.tractates.forEach(t => {
-        // кнопка з назвою
-        const btn = document.createElement('div');
-        btn.className = 'tractate-name';
-        btn.textContent = t.name;
-        btn.onclick = () => toggleCraft(t);
-        list.appendChild(btn);
+      data.levels.forEach(level => {
+        const row = document.createElement('div');
+        row.className = 'level';
 
-        // блок зі структурою
-        const block = document.createElement('div');
-        block.id = t.id;
-        block.className = 'craft-structure';
-        block.innerHTML = `
-          <h3>${t.name}</h3>
-          <p><b>Характеристики:</b> ${t.stats}</p>
-          <h4>Крафт:</h4>
-          <ul>${t.craft.map(c => `<li>${c}</li>`).join('')}</ul>
-        `;
-        container.appendChild(block);
+        level.tractates.forEach(t => {
+          const block = document.createElement('div');
+          block.className = 'tractate';
+          block.textContent = t.name;
+
+          const tooltip = document.createElement('div');
+          tooltip.className = 'tooltip';
+          tooltip.textContent = t.stats;
+          block.appendChild(tooltip);
+
+          block.onclick = () => toggleCraft(t.name, t);
+
+          row.appendChild(block);
+
+          const craftBlock = document.createElement('div');
+          craftBlock.id = t.name;
+          craftBlock.className = 'craft-structure';
+          craftBlock.innerHTML = `
+            <h3>${t.name}</h3>
+            <p><b>Характеристики:</b> ${t.stats}</p>
+            <h4>Крафт:</h4>
+            <ul>${t.craft.map(c => `<li>${c}</li>`).join('')}</ul>
+          `;
+          container.appendChild(craftBlock);
+        });
+
+        pyramid.appendChild(row);
       });
     }
 
-    function toggleCraft(t) {
-      const block = document.getElementById(t.id);
+    function toggleCraft(id, t) {
+      const block = document.getElementById(id);
       block.style.display = (block.style.display === "block") ? "none" : "block";
     }
 
