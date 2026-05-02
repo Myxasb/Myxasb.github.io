@@ -29,52 +29,85 @@
   <div id="craftContainer"></div>
 
   <script>
-    let data;
+  let data;
 
-    async function loadData() {
-      const response = await fetch('data.json');
-      data = await response.json();
+  async function loadData() {
+    const response = await fetch('data.json');
+    data = await response.json();
+    const list = document.getElementById('tractateList');
 
-      const list = document.getElementById('tractateList');
-      Object.keys(data.tractates).forEach(id => {
-        if(id !== "fragment"){ // не показуємо уривок як кнопку
-          const btn = document.createElement('div');
-          btn.className = 'tractate-name';
-          btn.textContent = data.tractates[id].name;
-          btn.onclick = () => showPath(id);
-          list.appendChild(btn);
-        }
-      });
-    }
-
-    function buildPath(id) {
-      const t = data.tractates[id];
-      if (!t) return null;
-
-      const li = document.createElement('li');
-      li.textContent = t.name;
-
-      if (t.craft.length > 0) {
-        const ul = document.createElement('ul');
-        t.craft.forEach(childId => {
-          const child = buildPath(childId);
-          if (child) ul.appendChild(child);
-        });
-        li.appendChild(ul);
+    Object.keys(data.tractates).forEach(id => {
+      if(id !== "fragment"){
+        const btn = document.createElement('div');
+        btn.className = 'tractate-name';
+        btn.textContent = data.tractates[id].name;
+        btn.onclick = () => showDetails(id);
+        list.appendChild(btn);
       }
-      return li;
+    });
+  }
+
+  function countAll(id, counts) {
+    const t = data.tractates[id];
+    if (!t) return 0;
+    if (t.craft.length === 0) {
+      counts["Уривок"] = (counts["Уривок"]||0) + 1;
+      return 1;
     }
 
-    function showPath(id) {
-      const container = document.getElementById('craftContainer');
-      container.innerHTML = "";
-      const root = buildPath(id);
+    counts[t.name] = (counts[t.name]||0) + 1;
+
+    let sum = 0;
+    t.craft.forEach(childId => {
+      sum += countAll(childId, counts);
+    });
+    return sum;
+  }
+
+  function buildTree(id) {
+    const t = data.tractates[id];
+    const li = document.createElement('li');
+    li.textContent = t.name;
+
+    if (t.craft.length > 0) {
       const ul = document.createElement('ul');
-      ul.appendChild(root);
-      container.appendChild(ul);
+      t.craft.forEach(childId => {
+        ul.appendChild(buildTree(childId));
+      });
+      li.appendChild(ul);
     }
+    return li;
+  }
 
-    loadData();
+  function showDetails(id) {
+    const container = document.getElementById('craftContainer');
+    container.innerHTML = "";
+
+    const counts = {};
+    const total = countAll(id, counts);
+
+    // Загальна кількість уривків
+    const summary = document.createElement('p');
+    summary.innerHTML = `<b>Для ${data.tractates[id].name} потрібно ${total} уривків</b>`;
+    container.appendChild(summary);
+
+    // Деталізація
+    const detail = document.createElement('ul');
+    Object.keys(counts).forEach(name => {
+      const li = document.createElement('li');
+      li.textContent = `${name}: ${counts[name]}`;
+      detail.appendChild(li);
+    });
+    container.appendChild(detail);
+
+    // Дерево
+    const treeRoot = buildTree(id);
+    const tree = document.createElement('ul');
+    tree.appendChild(treeRoot);
+    container.appendChild(tree);
+  }
+
+  loadData();
   </script>
 </body>
 </html>
