@@ -1,58 +1,145 @@
 {
   "tractates": {
     "fragment": {
-      "name": "Уривок",
+      "name": "Уривок небесного трактату",
+	  "description": "",
       "craft": [],
       "level": 0,
       "visible": false
     },
-    "1": {
-      "name": "Трактат 1",
-      "craft": ["fragment","fragment","fragment","fragment"],
+    "page": {
+      "name": "Небесна сторінка",
+	  "description": "",
+      "craft": [],
+      "level": 0,
+      "visible": false
+    },
+	"a1": {
+      "name": "Один проти цілої армії",
+	  "description": "",
+      "craft": ["fragment","fragment","fragment","page","page","page","page"],
       "level": 1,
       "visible": true
     },
-    "2": {
-      "name": "Трактат 2",
-      "craft": ["1","1","1"],
-      "level": 2,
+	"a2": {
+      "name": "Розквітли персикові дерева",
+	  "description": "",
+      "craft": ["fragment","fragment","fragment","page","page","page","page"],
+      "level": 1,
       "visible": true
     },
-    "2a": {
-      "name": "Трактат 2а",
-      "craft": ["1","1","1"],
-      "level": 2,
+	"a3": {
+      "name": "Вогонь дій",
+	  "description": "",
+      "craft": ["fragment","fragment","fragment","page","page","page","page"],
+      "level": 1,
       "visible": true
     },
-    "3": {
-      "name": "Трактат 3",
-      "craft": ["2","2","2a"],
-      "level": 3,
+	"a4": {
+      "name": "Величезний дух",
+	  "description": "",
+      "craft": ["fragment","fragment","fragment","page","page","page","page"],
+      "level": 1,
       "visible": true
     },
-    "4a": {
-      "name": "Трактат 4а",
-      "craft": ["3","3","3"],
-      "level": 4,
+	"a5": {
+      "name": "Період руйнувань",
+	  "description": "",
+      "craft": ["fragment","fragment","fragment","page","page","page","page"],
+      "level": 1,
       "visible": true
     },
-    "4b": {
-      "name": "Трактат 4б",
-      "craft": ["3","3","3"],
-      "level": 4,
+	"a6": {
+      "name": "Неможливе",
+	  "description": "",
+      "craft": ["fragment","fragment","fragment","page","page","page","page"],
+      "level": 1,
       "visible": true
     },
-    "4c": {
-      "name": "Трактат 4в",
-      "craft": ["3","3","3"],
-      "level": 4,
+	"a7": {
+      "name": "Сміх з квітами в руках",
+	  "description": "",
+      "craft": ["fragment","fragment","fragment","page","page","page","page"],
+      "level": 1,
       "visible": true
     },
-    "5a": {
-      "name": "Трактат 5а",
-      "craft": ["4a","4b","4c"],
-      "level": 5,
+	"a8": {
+      "name": "Червона річка",
+	  "description": "",
+      "craft": ["fragment","fragment","fragment","page","page","page","page"],
+      "level": 1,
       "visible": true
-    }
+    },
+	"a9": {
+      "name": "Місяць вогняних ночей",
+	  "description": "",
+      "craft": ["fragment","fragment","fragment","page","page","page","page"],
+      "level": 1,
+      "visible": true
+    },
+	
+	"b1": {
+      "name": "Піднімаємо 1000 цзюнь",
+	  "description": "",
+      "craft": ["a1","a4","a6"],
+      "level": 1,
+      "visible": true
+    },
+	"b2": {
+      "name": "Туманний дощ квітів сливи",
+	  "description": "",
+      "craft": ["a2","a5","a6"],
+      "level": 1,
+      "visible": true
+    },
+	"b3": {
+      "name": "Червоний лотос",
+	  "description": "",
+      "craft": ["a3","a7","a2"],
+      "level": 1,
+      "visible": true
+    },
+	"b4": {
+      "name": "Воїн Чі Ю",
+	  "description": "",
+      "craft": ["a1","a4","a3"],
+      "level": 1,
+      "visible": true
+    },
+	"b5": {
+      "name": "Червоний лотос",
+	  "description": "",
+      "craft": ["a3","a7","a2"],
+      "level": 1,
+      "visible": true
+    },
+	"b6": {
+      "name": "Червоний лотос",
+	  "description": "",
+      "craft": ["a3","a7","a2"],
+      "level": 1,
+      "visible": true
+    },
+	"b7": {
+      "name": "Червоний лотос",
+	  "description": "",
+      "craft": ["a3","a7","a2"],
+      "level": 1,
+      "visible": true
+    },
+	"b8": {
+      "name": "Червоний лотос",
+	  "description": "",
+      "craft": ["a3","a7","a2"],
+      "level": 1,
+      "visible": true
+    },
+	"b9": {
+      "name": "Червоний лотос",
+	  "description": "",
+      "craft": ["a3","a7","a2"],
+      "level": 1,
+      "visible": true
+    },
   }
 }
