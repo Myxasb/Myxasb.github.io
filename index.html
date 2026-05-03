@@ -51,15 +51,30 @@ async function loadData() {
 function countAll(id, counts) {
   const t = data.tractates[id];
   if (!t) return 0;
+
+  // якщо це базовий ресурс (немає craft)
   if (t.craft.length === 0) {
-    counts["fragment"] = (counts["fragment"]||0) + 1;
+    counts[id] = (counts[id] || 0) + 1;
     return 1;
   }
-  counts[t.name] = (counts[t.name]||0) + 1;
+
+  // додаємо сам трактат
+  counts[id] = (counts[id] || 0) + 1;
+
   let sum = 0;
-  t.craft.forEach(childId => sum += countAll(childId, counts));
+  t.craft.forEach(childId => {
+    // якщо childId є базовим ресурсом (наприклад fragment, page)
+    if (data.tractates[childId]) {
+      sum += countAll(childId, counts);
+    } else {
+      // якщо це просто "сировина" без опису в tractates
+      counts[childId] = (counts[childId] || 0) + 1;
+      sum += 1;
+    }
+  });
   return sum;
 }
+
 
 function showPyramid(id) {
   const counts = {};
