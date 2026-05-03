@@ -74,11 +74,12 @@ function showPyramid(id) {
 
   // групуємо по рівнях
   const levels = {};
-  Object.entries(data.tractates).forEach(([tid, tractate]) => {
-    if (counts[tid]) {
+  Object.keys(counts).forEach(name => {
+    const tractate = Object.values(data.tractates).find(t => t.name === name);
+    if (tractate) {
       const lvl = tractate.level || 0;
       if (!levels[lvl]) levels[lvl] = [];
-      levels[lvl].push({ id, name: tractate.name, count: counts[tractate.name] });
+      levels[lvl].push({id, name: tractate.name, count: counts[tractate.name] });
     }
   });
 
