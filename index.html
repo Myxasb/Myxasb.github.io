@@ -83,7 +83,7 @@ function showPyramid(id) {
     }
   });
 
-  Object.keys(levels).sort((a,b)=>a-b).forEach(lvl => {
+  Object.keys(levels).sort((a,b)=>b-a).forEach(lvl => {
     const row = document.createElement('div');
     row.className = 'level';
     levels[lvl].forEach(t => {
