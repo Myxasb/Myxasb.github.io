@@ -91,7 +91,7 @@ function showPyramid(id) {
       block.className = 'tractate';
 	  let image = `images/${t}.png`;
       block.innerHTML = `
-        <img src="${image}" alt="${t.name} x ${t.count}" style="width:36px;height:36px;"><br>";
+        <img src="${image}" alt="${t.name} x ${t.count}" style="width:36px;height:36px;"><br>"`;
       block.onclick = () => showPyramid(Object.keys(data.tractates).find(k => data.tractates[k].name === t.name));
       row.appendChild(block);
     });
