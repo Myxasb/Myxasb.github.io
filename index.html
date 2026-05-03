@@ -78,7 +78,7 @@ function showPyramid(id) {
     if (counts[tid]) {
       const lvl = tractate.level || 0;
       if (!levels[lvl]) levels[lvl] = [];
-      levels[lvl].push({ id: tid, name: tractate.name, count: counts[tid] });
+      levels[lvl].push({ id, name: tractate.name, count: counts[tractate.name] });
     }
   });
 
