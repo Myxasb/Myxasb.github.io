@@ -52,7 +52,7 @@ function countAll(id, counts) {
   const t = data.tractates[id];
   if (!t) return 0;
   if (t.craft.length === 0) {
-    counts["Уривок"] = (counts["Уривок"]||0) + 1;
+    counts["fragment"] = (counts["fragment"]||0) + 1;
     return 1;
   }
   counts[t.name] = (counts[t.name]||0) + 1;
