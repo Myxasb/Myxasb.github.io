@@ -18,9 +18,15 @@
       "level": 2,
       "visible": true
     },
+    "2a": {
+      "name": "Трактат 2а",
+      "craft": ["1","1","1"],
+      "level": 2,
+      "visible": true
+    },
     "3": {
       "name": "Трактат 3",
-      "craft": ["2","2","2"],
+      "craft": ["2","2","2a"],
       "level": 3,
       "visible": true
     },
