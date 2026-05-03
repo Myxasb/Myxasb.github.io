@@ -79,7 +79,7 @@ function showPyramid(id) {
     if (tractate) {
       const lvl = tractate.level || 0;
       if (!levels[lvl]) levels[lvl] = [];
-      levels[lvl].push({id: tractate.name, name, count: counts[name]});
+      levels[lvl].push({id, name: tractate.name, count: counts[tractate.name] });
     }
   });
 
@@ -89,9 +89,9 @@ function showPyramid(id) {
     levels[lvl].forEach(t => {
       const block = document.createElement('div');
       block.className = 'tractate';
-	  let image = `images/${t}.png`;
+	  let image = `images/${t.id}.png`;
       block.innerHTML = `
-        <img src="${image}" alt="${t.name} x ${t.count}" style="width:36px;height:36px;"><br>"`;
+        <img src="${image}" alt="${t.name} x ${t.count}" style="width:36px;height:36px;"><br>"`;//        ${t.name}<span>x${t.count}</span>`;
       block.onclick = () => showPyramid(Object.keys(data.tractates).find(k => data.tractates[k].name === t.name));
       row.appendChild(block);
     });
