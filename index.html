@@ -25,89 +25,79 @@
 </head>
 <body>
   <h1>Крафт трактатів</h1>
-  <div id="tractateList"></div>
-  <div id="craftContainer"></div>
+      /<div id="tractateList"></div>
+<div id="summary"></div>
+<div id="pyramid"></div>
 
-  <script>
-  let data;
+<script>
+let data;
 
-  async function loadData() {
-    const response = await fetch('data.json');
-    data = await response.json();
-    const list = document.getElementById('tractateList');
+async function loadData() {
+  const response = await fetch('data.json');
+  data = await response.json();
 
-    Object.keys(data.tractates).forEach(id => {
-      if(id !== "fragment"){
-        const btn = document.createElement('div');
-        btn.className = 'tractate-name';
-        btn.textContent = data.tractates[id].name;
-        btn.onclick = () => showDetails(id);
-        list.appendChild(btn);
-      }
-    });
-  }
-
-  function countAll(id, counts) {
+  const list = document.getElementById('tractateList');
+  Object.keys(data.tractates).forEach(id => {
     const t = data.tractates[id];
-    if (!t) return 0;
-    if (t.craft.length === 0) {
-      counts["Уривок"] = (counts["Уривок"]||0) + 1;
-      return 1;
+    if(t.visible){
+      const btn = document.createElement('button');
+      btn.textContent = t.name;
+      btn.onclick = () => showPyramid(id);
+      list.appendChild(btn);
     }
+  });
+}
 
-    counts[t.name] = (counts[t.name]||0) + 1;
-
-    let sum = 0;
-    t.craft.forEach(childId => {
-      sum += countAll(childId, counts);
-    });
-    return sum;
+function countAll(id, counts) {
+  const t = data.tractates[id];
+  if (!t) return 0;
+  if (t.craft.length === 0) {
+    counts["Уривок"] = (counts["Уривок"]||0) + 1;
+    return 1;
   }
+  counts[t.name] = (counts[t.name]||0) + 1;
+  let sum = 0;
+  t.craft.forEach(childId => sum += countAll(childId, counts));
+  return sum;
+}
 
-  function buildTree(id) {
-    const t = data.tractates[id];
-    const li = document.createElement('li');
-    li.textContent = t.name;
+function showPyramid(id) {
+  const counts = {};
+  const total = countAll(id, counts);
 
-    if (t.craft.length > 0) {
-      const ul = document.createElement('ul');
-      t.craft.forEach(childId => {
-        ul.appendChild(buildTree(childId));
-      });
-      li.appendChild(ul);
+  document.getElementById('summary').innerHTML =
+    `<h3>${data.tractates[id].name}</h3>
+     <p><b>Потрібно ${total} уривків</b></p>`;
+
+  const pyramid = document.getElementById('pyramid');
+  pyramid.innerHTML = "";
+
+  // групуємо по рівнях
+  const levels = {};
+  Object.keys(counts).forEach(name => {
+    const tractate = Object.values(data.tractates).find(t => t.name === name);
+    if (tractate) {
+      const lvl = tractate.level || 0;
+      if (!levels[lvl]) levels[lvl] = [];
+      levels[lvl].push({id: tractate.name, name, count: counts[name]});
     }
-    return li;
-  }
+  });
 
-  function showDetails(id) {
-    const container = document.getElementById('craftContainer');
-    container.innerHTML = "";
-
-    const counts = {};
-    const total = countAll(id, counts);
-
-    // Загальна кількість уривків
-    const summary = document.createElement('p');
-    summary.innerHTML = `<b>Для ${data.tractates[id].name} потрібно ${total} уривків</b>`;
-    container.appendChild(summary);
-
-    // Деталізація
-    const detail = document.createElement('ul');
-    Object.keys(counts).forEach(name => {
-      const li = document.createElement('li');
-      li.textContent = `${name}: ${counts[name]}`;
-      detail.appendChild(li);
+  Object.keys(levels).sort((a,b)=>a-b).forEach(lvl => {
+    const row = document.createElement('div');
+    row.className = 'level';
+    levels[lvl].forEach(t => {
+      const block = document.createElement('div');
+      block.className = 'tractate';
+      block.innerHTML = `${t.name}<span>x${t.count}</span>`;
+      block.onclick = () => showPyramid(Object.keys(data.tractates).find(k => data.tractates[k].name === t.name));
+      row.appendChild(block);
     });
-    container.appendChild(detail);
+    pyramid.appendChild(row);
+  });
+}
 
-    // Дерево
-    const treeRoot = buildTree(id);
-    const tree = document.createElement('ul');
-    tree.appendChild(treeRoot);
-    container.appendChild(tree);
-  }
-
-  loadData();
-  </script>
+loadData();
+</script>
 </body>
 </html>
