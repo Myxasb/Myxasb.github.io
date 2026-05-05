@@ -1,273 +1,497 @@
 {
-  "tractates": {
-    "fragment": {
-      "name": "Уривок небесного трактату",
-	  "description": "",
-      "craft": [],
-      "level": 0,
-      "visible": false
-    },
-    "page": {
-      "name": "Небесна сторінка",
-	  "description": "",
-      "craft": [],
-      "level": 0,
-      "visible": false
-    },
-	"a1": {
-      "name": "Один проти цілої армії",
-	  "description": "",
-      "craft": ["fragment","fragment","fragment","page","page","page","page"],
-      "level": 1,
-      "visible": true
-    },
-	"a2": {
-      "name": "Розквітли персикові дерева",
-	  "description": "",
-      "craft": ["fragment","fragment","fragment","page","page","page","page"],
-      "level": 1,
-      "visible": true
-    },
-	"a3": {
-      "name": "Вогонь дій",
-	  "description": "",
-      "craft": ["fragment","fragment","fragment","page","page","page","page"],
-      "level": 1,
-      "visible": true
-    },
-	"a4": {
-      "name": "Величезний дух",
-	  "description": "",
-      "craft": ["fragment","fragment","fragment","page","page","page","page"],
-      "level": 1,
-      "visible": true
-    },
-	"a5": {
-      "name": "Період руйнувань",
-	  "description": "",
-      "craft": ["fragment","fragment","fragment","page","page","page","page"],
-      "level": 1,
-      "visible": true
-    },
-	"a6": {
-      "name": "Неможливе",
-	  "description": "",
-      "craft": ["fragment","fragment","fragment","page","page","page","page"],
-      "level": 1,
-      "visible": true
-    },
-	"a7": {
-      "name": "Сміх з квітами в руках",
-	  "description": "",
-      "craft": ["fragment","fragment","fragment","page","page","page","page"],
-      "level": 1,
-      "visible": true
-    },
-	"a8": {
-      "name": "Червона річка",
-	  "description": "",
-      "craft": ["fragment","fragment","fragment","page","page","page","page"],
-      "level": 1,
-      "visible": true
-    },
-	"a9": {
-      "name": "Місяць вогняних ночей",
-	  "description": "",
-      "craft": ["fragment","fragment","fragment","page","page","page","page"],
-      "level": 1,
-      "visible": true
-    },
-	
-	"b1": {
-      "name": "Піднімаємо 1000 цзюнь",
-	  "description": "",
-      "craft": ["a1","a4","a6"],
-      "level": 2,
-      "visible": true
-    },
-	"b2": {
-      "name": "Туманний дощ квітів сливи",
-	  "description": "",
-      "craft": ["a2","a5","a6"],
-      "level": 2,
-      "visible": true
-    },
-	"b3": {
-      "name": "Червоний лотос",
-	  "description": "",
-      "craft": ["a3","a7","a2"],
-      "level": 2,
-      "visible": true
-    },
-	"b4": {
-      "name": "Воїн Чі Ю",
-	  "description": "",
-      "craft": ["a1","a4","a3"],
-      "level": 2,
-      "visible": true
-    },
-	"b5": {
-      "name": "Стулки квітів персика",
-	  "description": "",
-      "craft": ["a2","a5","a7"],
-      "level": 2,
-      "visible": true
-    },
-	"b6": {
-      "name": "Під фортецею",
-	  "description": "",
-      "craft": ["a6","a1","a3"],
-      "level": 2,
-      "visible": true
-    },
-	"b7": {
-      "name": "Справжній вогонь самадхи",
-	  "description": "",
-      "craft": ["a7","a3","a4"],
-      "level": 2,
-      "visible": true
-    },
-	"b8": {
-      "name": "Вовк вбивця",
-	  "description": "",
-      "craft": ["a8","a3","a1"],
-      "level": 2,
-      "visible": true
-    },
-	"b9": {
-      "name": "Фенікс, що купається у вогні",
-	  "description": "",
-      "craft": ["a9","a3","a7"],
-      "level": 2,
-      "visible": true
-    },
-	
-	"c1": {
-      "name": "Насолоджуйся життям, поки можна",
-	  "description": "",
-      "craft": ["b1","b6","b3"],
-      "level": 3,
-      "visible": true
-    },
-	"c2": {
-      "name": "Захід сонця",
-	  "description": "",
-      "craft": ["b2","b5","b6"],
-      "level": 3,
-      "visible": true
-    },
-	"c3": {
-      "name": "Злодійство",
-	  "description": "",
-      "craft": ["b7","b3","b2"],
-      "level": 3,
-      "visible": true
-    },
-	"c4": {
-      "name": "Широкий шлях",
-	  "description": "",
-      "craft": ["b4","b1","b3"],
-      "level": 3,
-      "visible": true
-    },
-	"c5": {
-      "name": "Аромат красуні",
-	  "description": "",
-      "craft": ["b5","b2","b1"],
-      "level": 3,
-      "visible": true
-    },
-	"c6": {
-      "name": "Прощальна пісня",
-	  "description": "",
-      "craft": ["b6","b3","b1"],
-      "level": 3,
-      "visible": true
-    },
-	"c7": {
-      "name": "Холоднокровна людина",
-	  "description": "",
-      "craft": ["b7","b5","b4"],
-      "level": 3,
-      "visible": true
-    },
-	"c8": {
-      "name": "Поразка та розпад",
-	  "description": "",
-      "craft": ["b8","b2","b4"],
-      "level": 3,
-      "visible": true
-    },
-	"c9": {
-      "name": "Сморід",
-	  "description": "",
-      "craft": ["b9","b3","b2"],
-      "level": 3,
-      "visible": true
-    },
-	
-	"d1": {
-      "name": "Буддистські почуття",
-	  "description": "",
-      "craft": ["c3","c7","c4"],
-      "level": 4,
-      "visible": true
-    },
-	"d2": {
-      "name": "Фаталізм",
-	  "description": "",
-      "craft": ["c4","c1","c5"],
-      "level": 4,
-      "visible": true
-    },
-	"d3": {
-      "name": "Шипи троянд",
-	  "description": "",
-      "craft": ["c2","c5","c3"],
-      "level": 4,
-      "visible": true
-    },
-	"d4": {
-      "name": "Заворушення",
-	  "description": "Тіло +20",
-      "craft": ["c6","c7","c1"],
-      "level": 4,
-      "visible": true
-    },
-	"d5": {
-      "name": "Весняний вітер",
-	  "description": "",
-      "craft": ["c3","c7","c6"],
-      "level": 4,
-      "visible": true
-    },
-	"d6": {
-      "name": "Південь ріки Янцзи",
-	  "description": "",
-      "craft": ["c8","b5","b7"],
-      "level": 4,
-      "visible": true
-    },
-	"d7": {
-      "name": "Води слабкості",
-	  "description": "",
-      "craft": ["c9","c2","c6"],
-      "level": 4,
-      "visible": true
-    },
-	"d8": {
-      "name": "Вітер тигрів - хмари драконів",
-	  "description": "",
-      "craft": ["c1","c4","c2"],
-      "level": 4,
-      "visible": true
-    },
-	"d9": {
-      "name": "Заклик духів",
-	  "description": "",
-      "craft": ["c2","c5","c3"],
-      "level": 4,
-      "visible": true
+      "tractates": {
+        "fragment": {
+          "name": "Уривок небесного трактату",
+          "description": "",
+          "craft": [],
+          "level": 0,
+          "visible": false
+        },
+        "page": {
+          "name": "Небесна сторінка",
+          "description": "",
+          "craft": [],
+          "level": 0,
+          "visible": false
+        },
+        "a1": {
+          "name": "Один проти цілої армії",
+          "description": "",
+          "craft": ["fragment", "fragment", "fragment", "page", "page", "page", "page"],
+          "level": 1,
+          "visible": true
+        },
+        "a2": {
+          "name": "Розквітли персикові дерева",
+          "description": "",
+          "craft": ["fragment", "fragment", "fragment", "page", "page", "page", "page"],
+          "level": 1,
+          "visible": true
+        },
+        "a3": {
+          "name": "Вогонь дій",
+          "description": "",
+          "craft": ["fragment", "fragment", "fragment", "page", "page", "page", "page"],
+          "level": 1,
+          "visible": true
+        },
+        "a4": {
+          "name": "Величезний дух",
+          "description": "",
+          "craft": ["fragment", "fragment", "fragment", "page", "page", "page", "page"],
+          "level": 1,
+          "visible": true
+        },
+        "a5": {
+          "name": "Період руйнувань",
+          "description": "",
+          "craft": ["fragment", "fragment", "fragment", "page", "page", "page", "page"],
+          "level": 1,
+          "visible": true
+        },
+        "a6": {
+          "name": "Неможливе",
+          "description": "",
+          "craft": ["fragment", "fragment", "fragment", "page", "page", "page", "page"],
+          "level": 1,
+          "visible": true
+        },
+        "a7": {
+          "name": "Сміх з квітами в руках",
+          "description": "",
+          "craft": ["fragment", "fragment", "fragment", "page", "page", "page", "page"],
+          "level": 1,
+          "visible": true
+        },
+        "a8": {
+          "name": "Червона річка",
+          "description": "",
+          "craft": ["fragment", "fragment", "fragment", "page", "page", "page", "page"],
+          "level": 1,
+          "visible": true
+        },
+        "a9": {
+          "name": "Місяць вогняних ночей",
+          "description": "",
+          "craft": ["fragment", "fragment", "fragment", "page", "page", "page", "page"],
+          "level": 1,
+          "visible": true
+        },
+
+        "b1": {
+          "name": "Піднімаємо 1000 цзюнь",
+          "description": "",
+          "craft": ["a1", "a4", "a6"],
+          "level": 2,
+          "visible": true
+        },
+        "b2": {
+          "name": "Туманний дощ квітів сливи",
+          "description": "",
+          "craft": ["a2", "a5", "a6"],
+          "level": 2,
+          "visible": true
+        },
+        "b3": {
+          "name": "Червоний лотос",
+          "description": "",
+          "craft": ["a3", "a7", "a2"],
+          "level": 2,
+          "visible": true
+        },
+        "b4": {
+          "name": "Воїн Чі Ю",
+          "description": "",
+          "craft": ["a1", "a4", "a3"],
+          "level": 2,
+          "visible": true
+        },
+        "b5": {
+          "name": "Стулки квітів персика",
+          "description": "",
+          "craft": ["a2", "a5", "a7"],
+          "level": 2,
+          "visible": true
+        },
+        "b6": {
+          "name": "Під фортецею",
+          "description": "",
+          "craft": ["a6", "a1", "a3"],
+          "level": 2,
+          "visible": true
+        },
+        "b7": {
+          "name": "Справжній вогонь самадхи",
+          "description": "",
+          "craft": ["a7", "a3", "a4"],
+          "level": 2,
+          "visible": true
+        },
+        "b8": {
+          "name": "Вовк вбивця",
+          "description": "",
+          "craft": ["a8", "a3", "a1"],
+          "level": 2,
+          "visible": true
+        },
+        "b9": {
+          "name": "Фенікс, що купається у вогні",
+          "description": "",
+          "craft": ["a9", "a3", "a7"],
+          "level": 2,
+          "visible": true
+        },
+
+        "c1": {
+          "name": "Насолоджуйся життям, поки можна",
+          "description": "",
+          "craft": ["b1", "b6", "b3"],
+          "level": 3,
+          "visible": true
+        },
+        "c2": {
+          "name": "Захід сонця",
+          "description": "",
+          "craft": ["b2", "b5", "b6"],
+          "level": 3,
+          "visible": true
+        },
+        "c3": {
+          "name": "Злодійство",
+          "description": "",
+          "craft": ["b7", "b3", "b2"],
+          "level": 3,
+          "visible": true
+        },
+        "c4": {
+          "name": "Широкий шлях",
+          "description": "",
+          "craft": ["b4", "b1", "b3"],
+          "level": 3,
+          "visible": true
+        },
+        "c5": {
+          "name": "Аромат красуні",
+          "description": "",
+          "craft": ["b5", "b2", "b1"],
+          "level": 3,
+          "visible": true
+        },
+        "c6": {
+          "name": "Прощальна пісня",
+          "description": "",
+          "craft": ["b6", "b3", "b1"],
+          "level": 3,
+          "visible": true
+        },
+        "c7": {
+          "name": "Холоднокровна людина",
+          "description": "",
+          "craft": ["b7", "b5", "b4"],
+          "level": 3,
+          "visible": true
+        },
+        "c8": {
+          "name": "Поразка та розпад",
+          "description": "",
+          "craft": ["b8", "b2", "b4"],
+          "level": 3,
+          "visible": true
+        },
+        "c9": {
+          "name": "Сморід",
+          "description": "",
+          "craft": ["b9", "b3", "b2"],
+          "level": 3,
+          "visible": true
+        },
+
+        "d1": {
+          "name": "Буддистські почуття",
+          "description": "",
+          "craft": ["c3", "c7", "c4"],
+          "level": 4,
+          "visible": true
+        },
+        "d2": {
+          "name": "Фаталізм",
+          "description": "",
+          "craft": ["c4", "c1", "c5"],
+          "level": 4,
+          "visible": true
+        },
+        "d3": {
+          "name": "Шипи троянд",
+          "description": "",
+          "craft": ["c2", "c5", "c3"],
+          "level": 4,
+          "visible": true
+        },
+        "d4": {
+          "name": "Заворушення",
+          "description": "Тіло +20",
+          "craft": ["c6", "c7", "c1"],
+          "level": 4,
+          "visible": true
+        },
+        "d5": {
+          "name": "Весняний вітер",
+          "description": "",
+          "craft": ["c3", "c7", "c6"],
+          "level": 4,
+          "visible": true
+        },
+        "d6": {
+          "name": "Південь ріки Янцзи",
+          "description": "",
+          "craft": ["c8", "b5", "b7"],
+          "level": 4,
+          "visible": true
+        },
+        "d7": {
+          "name": "Води слабкості",
+          "description": "",
+          "craft": ["c9", "c2", "c6"],
+          "level": 4,
+          "visible": true
+        },
+        "d8": {
+          "name": "Вітер тигрів - хмари драконів",
+          "description": "",
+          "craft": ["c1", "c4", "c2"],
+          "level": 4,
+          "visible": true
+        },
+        "d9": {
+          "name": "Заклик духів",
+          "description": "",
+          "craft": ["c2", "c5", "c3"],
+          "level": 4,
+          "visible": true
+        },
+		"e1": {
+          "name": "Буддистські почуття",
+          "description": "",
+          "craft": ["c3", "c7", "c4"],
+          "level": 5,
+          "visible": true
+        },
+        "e2": {
+          "name": "Фаталізм",
+          "description": "",
+          "craft": ["c4", "c1", "c5"],
+          "level": 5,
+          "visible": true
+        },
+        "e3": {
+          "name": "Шипи троянд",
+          "description": "",
+          "craft": ["c2", "c5", "c3"],
+          "level": 5,
+          "visible": true
+        },
+        "e4": {
+          "name": "Заворушення",
+          "description": "Тіло +20",
+          "craft": ["c6", "c7", "c1"],
+          "level": 5,
+          "visible": true
+        },
+        "e5": {
+          "name": "Весняний вітер",
+          "description": "",
+          "craft": ["c3", "c7", "c6"],
+          "level": 5,
+          "visible": true
+        },
+        "e6": {
+          "name": "Південь ріки Янцзи",
+          "description": "",
+          "craft": ["c8", "b5", "b7"],
+          "level": 5,
+          "visible": true
+        },
+        "e7": {
+          "name": "Води слабкості",
+          "description": "",
+          "craft": ["c9", "c2", "c6"],
+          "level": 5,
+          "visible": true
+        },
+        "e8": {
+          "name": "Вітер тигрів - хмари драконів",
+          "description": "",
+          "craft": ["c1", "c4", "c2"],
+          "level": 5,
+          "visible": true
+        },
+        "e9": {
+          "name": "Заклик духів",
+          "description": "",
+          "craft": ["c2", "c5", "c3"],
+          "level": 5,
+          "visible": true
+        },
+		"e10": {
+          "name": "Буддистські почуття",
+          "description": "",
+          "craft": ["c3", "c7", "c4"],
+          "level": 5,
+          "visible": true
+        },
+		"e11": {
+          "name": "Буддистські почуття",
+          "description": "",
+          "craft": ["c3", "c7", "c4"],
+          "level": 5,
+          "visible": true
+        },
+        "e12": {
+          "name": "Фаталізм",
+          "description": "",
+          "craft": ["c4", "c1", "c5"],
+          "level": 5,
+          "visible": true
+        },
+        "e13": {
+          "name": "Шипи троянд",
+          "description": "",
+          "craft": ["c2", "c5", "c3"],
+          "level": 5,
+          "visible": true
+        },
+        "e14": {
+          "name": "Дотик малинових губ",
+          "description": "Сила +13 \nТіло +12\nШанс критичного удару +1%",
+          "craft": ["d8", "d2", "d4"],
+          "level": 5,
+          "visible": true
+        },
+        "e15": {
+          "name": "Тринадцять хуліганів",
+          "description": "",
+          "craft": ["d6", "d7", "d1"],
+          "level": 5,
+          "visible": true
+        },
+        "e16": {
+          "name": "Порожнє дзеркало",
+          "description": "",
+          "craft": ["d6", "d7", "d1"],
+          "level": 5,
+          "visible": true
+        },
+		"f1": {
+          "name": "Буддистські почуття",
+          "description": "",
+          "craft": ["c3", "c7", "c4"],
+          "level": 6,
+          "visible": true
+        },
+        "f2": {
+          "name": "Фаталізм",
+          "description": "",
+          "craft": ["c4", "c1", "c5"],
+          "level": 6,
+          "visible": true
+        },
+        "f3": {
+          "name": "Шипи троянд",
+          "description": "",
+          "craft": ["c2", "c5", "c3"],
+          "level": 6,
+          "visible": true
+        },
+        "f4": {
+          "name": "Заворушення",
+          "description": "Тіло +20",
+          "craft": ["c6", "c7", "c1"],
+          "level": 6,
+          "visible": true
+        },
+        "f5": {
+          "name": "Весняний вітер",
+          "description": "",
+          "craft": ["c3", "c7", "c6"],
+          "level": 6,
+          "visible": true
+        },
+        "f6": {
+          "name": "Південь ріки Янцзи",
+          "description": "",
+          "craft": ["c8", "b5", "b7"],
+          "level": 6,
+          "visible": true
+        },
+        "f7": {
+          "name": "Води слабкості",
+          "description": "",
+          "craft": ["c9", "c2", "c6"],
+          "level": 6,
+          "visible": true
+        },
+        "f8": {
+          "name": "Вітер тигрів - хмари драконів",
+          "description": "",
+          "craft": ["c1", "c4", "c2"],
+          "level": 6,
+          "visible": true
+        },
+        "f9": {
+          "name": "Заклик духів",
+          "description": "",
+          "craft": ["c2", "c5", "c3"],
+          "level": 6,
+          "visible": true
+        },
+		"f10": {
+          "name": "Буддистські почуття",
+          "description": "",
+          "craft": ["c3", "c7", "c4"],
+          "level": 6,
+          "visible": true
+        },
+		"f11": {
+          "name": "Буддистські почуття",
+          "description": "",
+          "craft": ["c3", "c7", "c4"],
+          "level": 6,
+          "visible": true
+        },
+        "f12": {
+          "name": "Фаталізм",
+          "description": "",
+          "craft": ["c4", "c1", "c5"],
+          "level": 6,
+          "visible": true
+        },
+        "f13": {
+          "name": "Шипи троянд",
+          "description": "",
+          "craft": ["c2", "c5", "c3"],
+          "level": 6,
+          "visible": true
+        },
+        "f14": {
+          "name": "Заворушення",
+          "description": "Тіло +20",
+          "craft": ["c6", "c7", "c1"],
+          "level": 6,
+          "visible": true
+        },
+        "f15": {
+          "name": "Весняний вітер",
+          "description": "",
+          "craft": ["c3", "c7", "c6"],
+          "level": 6,
+          "visible": true
+        },
+        "f16": {
+          "name": "Бог Пань Гу",
+          "description": "Сила +9 \n Спритність +9\n Тіло +8\n Інтелект +9\n Шанс критичного удару +1%\n Час активації -1%\n Затримка атаки -0.05сек",
+          "craft": ["e16", "e15", "e14"],
+          "level": 6,
+          "visible": true
+        }
+      }
     }
-  }
-}
