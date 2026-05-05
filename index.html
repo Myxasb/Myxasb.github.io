@@ -315,6 +315,10 @@
   async function loadData() {
     const response = await fetch('data.json');
     data = await response.json();
+    
+    // Відкрити трактат з URL при завантаженні сторінки
+    const id = new URLSearchParams(window.location.search).get('id');
+    if (id && data.tractates[id]) showPyramid(id);
   }
 
   function countAll(id) {
@@ -354,6 +358,11 @@
   }
 
   function showPyramid(id) {
+        // Оновити URL без перезавантаження сторінки
+    const url = new URL(window.location);
+    url.searchParams.set('id', id);
+    history.pushState({ id }, '', url);
+
     const counts = collectCounts(id);
     const total = countAll(id);
     const tractate = data.tractates[id];
@@ -497,6 +506,13 @@
     }
   });
 
+    // Навігація кнопками браузера назад / вперед
+  window.addEventListener('popstate', e => {
+    if (e.state?.id && data?.tractates[e.state.id]) {
+      showPyramid(e.state.id);
+    }
+  });
+  
   loadData();
 </script>
 
