@@ -1,17 +1,175 @@
 <!DOCTYPE html>
 <html lang="uk">
+
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Повний шлях крафту</title>
   <style>
-    body { font-family: sans-serif; text-align: center; }
+    /* ── Reset & Base ─────────────────────────────── */
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+      text-align: center;
+      min-width: 240px;
+    }
+
+    /* ── Layout ───────────────────────────────────── */
+    .page-wrapper {
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      background: #ffffff;
+    }
+
+    .content {
+      flex: 1;
+      background: #111;
+      padding-top: 15px;
+      min-width: 240px;
+    }
+
+    /* ── Header ───────────────────────────────────── */
+    .site-header {
+      background: #000;
+      color: #fff;
+      padding: 15px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .site-header .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .site-header .logo h1 {
+      margin: 0;
+      font-size: 1.5em;
+      color: #fff;
+    }
+
+    .nav-menu ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    .nav-menu ul li {
+      margin-left: 20px;
+    }
+
+    .nav-menu ul li a {
+      color: #bbb;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .nav-menu ul li a:hover {
+      color: #fff;
+    }
+
+    /* ── Footer ───────────────────────────────────── */
+    .site-footer {
+      background: #000;
+      color: #ddd;
+      padding: 10px 20px;
+    }
+
+    .site-footer .footer-content {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .site-footer h3 {
+      color: #fff;
+    }
+
+    .site-footer ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .site-footer ul li {
+      margin: 5px 0;
+    }
+
+    .site-footer ul li a {
+      color: #bbb;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .site-footer ul li a:hover {
+      color: #fff;
+    }
+
+    .footer-right {
+      font-size: 0.9em;
+      color: #888;
+      text-align: right;
+    }
+
+    /* ── Search ───────────────────────────────────── */
+    #searchResults {
+      display: none;
+      position: absolute;
+      top: 200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 420px;
+      max-height: 300px;
+      overflow-y: auto;
+      background: #111;
+      color: #ddd;
+      border: 1px solid #333;
+      border-radius: 6px;
+      padding: 10px;
+      z-index: 999;
+    }
+
+    .search-item {
+      display: flex;
+      align-items: center;
+      padding: 8px 12px;
+      border-bottom: 1px solid #222;
+      cursor: pointer;
+    }
+
+    .search-item img {
+      margin-right: 10px;
+    }
+
+    .search-item:hover {
+      background: #222;
+    }
+
+    /* ── Tractate cards ───────────────────────────── */
     .tractate-name {
       display: inline-block;
       margin: 10px;
       padding: 10px;
       border: 1px solid #333;
       cursor: pointer;
+      color: gray;
     }
+
+    /* ── Pyramid rows ─────────────────────────────── */
+    .level {
+      margin: 2px 0;
+    }
+
+    .tractate p {
+      margin: 2px 0;
+    }
+
     .craft-path {
       margin: 15px auto;
       border: 1px solid #666;
@@ -19,110 +177,327 @@
       width: 70%;
       text-align: left;
     }
-    ul { list-style: none; padding-left: 20px; }
-    li { margin: 5px 0; }
+
+    ul {
+      list-style: none;
+      padding-left: 20px;
+    }
+
+    li {
+      margin: 5px 0;
+    }
+
+    /* ── Summary ──────────────────────────────────── */
+    #summary {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 12px 0;
+    }
+
+    #summary [data-tooltip] {
+      display: flex;
+      align-items: center;
+    }
+
+    #summary [data-tooltip]::after {
+      bottom: auto;
+      top: calc(100% + 30px);
+    }
+
+    #summary [data-tooltip]::before {
+      bottom: auto;
+      top: calc(100%);
+      content: '';
+      border: 10px solid transparent;
+      border-bottom: 10px solid gray;
+    }
+
+    #summary h3 {
+      margin: 0;
+    }
+
+    /* ── Tooltip ──────────────────────────────────── */
+    p [data-tooltip] img {
+      justify-content: center;
+    }
+
+    [data-tooltip] {
+      position: relative;
+      cursor: pointer;
+      width: max-content;
+    }
+
+    [data-tooltip]::after,
+    [data-tooltip]::before {
+      position: absolute;
+      left: 50%;
+      display: block;
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.3s;
+      transform: translateX(-50%);
+    }
+
+    [data-tooltip]:hover::after,
+    [data-tooltip]:hover::before {
+      opacity: 1;
+      visibility: visible;
+      z-index: 99999;
+      white-space: pre-line;
+    }
+
+    [data-tooltip]::after {
+      bottom: -54px;
+      content: attr(data-tooltip);
+      padding: 8px;
+      border-radius: 8px;
+      background: gray;
+      text-align: center;
+      width: max-content;
+    }
+
+    [data-tooltip]::before {
+      bottom: -10px;
+      content: '';
+      border: 10px solid transparent;
+      border-bottom: 10px solid gray;
+    }
   </style>
 </head>
+
 <body>
-  <h1>Крафт трактатів</h1> 
+  <div class="page-wrapper">
+
+    <header class="site-header">
+      <div class="header-content">
+        <div class="logo">
+          <img src="images/logo.png" alt="ЧорнаРада" title="ЧорнаРада" style="width:230px;height:90px;">
+          <h1>Калькулятор трактатів</h1>
+        </div>
+
+      </div>
+    </header>
+
+    <main class="content">
+      <input type="text" id="searchBox" placeholder="Пошук...">
+      <div id="searchResults"></div>
       <div id="tractateList"></div>
       <div id="summary"></div>
       <div id="pyramid"></div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-left">
+          <h3>Craft Pyramid Project</h3>
+          <p>Інтерактивна таблиця крафту трактатів</p>
+        </div>
+        <div class="footer-center">
+          <ul></ul>
+        </div>
+        <div class="footer-right">
+          <p>Powered by SoloFarm from ЧорнаРада</p>
+          <p>© 2026 ЧорнаРада. Всі права захищені.</p>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+</body>
 
 <script>
-let data;
+  const resultsDiv = document.getElementById('searchResults');
+  let isResultsHidden = false;
 
-async function loadData() {
-  const response = await fetch('data.json');
-  data = await response.json();
-
-  const list = document.getElementById('tractateList');
-  Object.keys(data.tractates).forEach(id => {
-    const t = data.tractates[id];
-    if(t.visible){
-      const btn = document.createElement('button');
-      btn.textContent = t.name;
-      btn.onclick = () => showPyramid(id);
-      list.appendChild(btn);
-    }
-  });
-}
-
-function countAll(id) {
-  const t = data.tractates[id];
-  if (!t) return { fragments: 0, pages: 0 };
-
-  // якщо трактат не має craft — нічого не додаємо (бо це не уривок/сторінка)
-  if (!t.craft || t.craft.length === 0) {
-    return { fragments: 0, pages: 0 };
+  async function loadData() {
+    const response = await fetch('data.json');
+    data = await response.json();
   }
 
-  let result = { fragments: 0, pages: 0 };
-
-  t.craft.forEach(childId => {
-    if (childId === "fragment") {
-      result.fragments += 1;
-    } else if (childId === "page") {
-      result.pages += 1;
-    } else if (data.tractates[childId]) {
-      // рекурсивно рахуємо для дочірнього трактата
-      const childRes = countAll(childId);
-      result.fragments += childRes.fragments;
-      result.pages += childRes.pages;
+  function countAll(id) {
+    const t = data.tractates[id];
+    if (!t || !t.craft || t.craft.length === 0) {
+      return { fragments: 0, pages: 0 };
     }
-  });
 
-  return result;
-}
+    const result = { fragments: 0, pages: 0 };
 
-
-
-function showPyramid(id) {
-  const counts = {};
-  const total = countAll(id);
-
-  document.getElementById('summary').innerHTML =
-    `<h3>${data.tractates[id].name}</h3>
-     <p><b>Потрібно ${total.fragments} уривків і ${total.pages}</b></p>`;
-
-  const pyramid = document.getElementById('pyramid');
-  pyramid.innerHTML = "";
-
-  // групуємо по рівнях
-  const levels = {};
-  Object.keys(counts).forEach(name => {
-    const tractate = Object.values(data.tractates).find(t => t.name === name);
-    if (tractate) {
-      const lvl = tractate.level || 0;
-      if (!levels[lvl]) levels[lvl] = [];
-      levels[lvl].push({id, name: tractate.name, count: counts[tractate.name] });
-    }
-  });
-
-  // сортуємо від найбільшого рівня (кінцевий трактат) до найменшого (уривки)
-  Object.keys(levels).sort((a,b)=>b-a).forEach(lvl => {
-    const row = document.createElement('div');
-    row.className = 'level';
-    row.style.display = "flex";
-    row.style.justifyContent = "center";
-
-    levels[lvl].forEach(t => {
-      const block = document.createElement('div');
-      block.className = 'tractate';
-      const image = `images/${t.id}.png`;
-      block.innerHTML = `
-        <img src="${image}" alt="${t.name} x${t.count}" style="width:36px;height:36px;"><br>
-        ${t.name}<span> x${t.count}</span>
-      `;
-      block.onclick = () => showPyramid(t.id);
-      row.appendChild(block);
+    t.craft.forEach(childId => {
+      if (childId === 'fragment') {
+        result.fragments += 1;
+      } else if (childId === 'page') {
+        result.pages += 1;
+      } else if (data.tractates[childId]) {
+        const childRes = countAll(childId);
+        result.fragments += childRes.fragments;
+        result.pages += childRes.pages;
+      }
     });
 
-    pyramid.appendChild(row);
-  });
-}
+    return result;
+  }
 
-loadData();
+  function collectCounts(id, counts = {}) {
+    const t = data.tractates[id];
+    if (!t || !t.craft || t.craft.length === 0) return counts;
+
+    t.craft.forEach(childId => {
+      if (childId === 'fragment' || childId === 'page') return;
+      counts[childId] = (counts[childId] || 0) + 1;
+      collectCounts(childId, counts);
+    });
+
+    return counts;
+  }
+
+  function showPyramid(id) {
+    const counts = collectCounts(id);
+    const total = countAll(id);
+    const tractate = data.tractates[id];
+
+    document.getElementById('summary').innerHTML = `
+      <span data-tooltip="${tractate.name}\n ${tractate.description}">
+        <img class="tooltip-img" src="images/${id}.png" alt="${tractate.name}"
+             style="width:38px;height:38px;display:block;">
+      </span>
+      <h3 style="color:purple;margin:0;">${tractate.name}</h3>`;
+
+    const pyramid = document.getElementById('pyramid');
+    pyramid.innerHTML = '';
+
+    // Group tractates by level
+    const levels = {};
+    Object.entries(counts).forEach(([tractateId, count]) => {
+      const t = data.tractates[tractateId];
+      if (!t) return;
+      const lvl = t.level || 0;
+      if (!levels[lvl]) levels[lvl] = [];
+      levels[lvl].push({ id: tractateId, name: t.name, count });
+    });
+
+    // Render pyramid rows (highest level first)
+    Object.keys(levels).sort((a, b) => b - a).forEach(lvl => {
+      const row = document.createElement('div');
+      row.className = 'level';
+      row.style.cssText = 'display:flex;justify-content:center;gap:10px;';
+
+      levels[lvl].forEach(t => {
+        const desc = t.description || '';
+        const block = document.createElement('div');
+        block.className = 'tractate';
+        block.innerHTML = `
+          <p data-tooltip="${t.name} x ${t.count}\n ${desc}">
+            <img class="tooltip-img" src="images/${t.id}.png"
+                 alt="${t.name} x ${t.count}" style="width:38px;height:38px;"><br>${t.count}
+          </p>`;
+        block.onclick = () => showPyramid(t.id);
+        row.appendChild(block);
+      });
+
+      pyramid.appendChild(row);
+    });
+
+    // Render base resources row (fragments & pages)
+    const totalRow = document.createElement('div');
+    totalRow.className = 'level';
+    totalRow.style.cssText = 'display:flex;justify-content:center;gap:10px;';
+    if (total) {
+      if (total.fragments > 0) {
+        const fragment = document.createElement('div');
+        fragment.className = 'tractate';
+        fragment.innerHTML = `
+        <p data-tooltip="Уривок небесної сторінки x ${total.fragments}">
+        <img src="images/fragment.png" style="width:38px;height:38px;"><br>${total.fragments}
+        </p>`;
+        totalRow.appendChild(fragment);
+      }
+      if (total.pages > 0) {
+        const page = document.createElement('div');
+        page.className = 'tractate';
+        page.innerHTML = `
+        <p data-tooltip="Небесна сторінка x ${total.pages}">
+        <img src="images/page.png" style="width:38px;height:38px;"><br>${total.pages}
+        </p>`;
+        totalRow.appendChild(page);
+      }
+
+
+    }
+    pyramid.appendChild(totalRow);
+  }
+
+  function searchTractates(query) {
+    query = query.toLowerCase();
+    const results = [];
+
+    Object.entries(data.tractates).forEach(([id, tractate]) => {
+      const nameMatch = tractate.name.toLowerCase().includes(query);
+      const descMatch = tractate.description && tractate.description.toLowerCase().includes(query);
+      const levelMatch = String(tractate.level) === query;
+
+      if (nameMatch || descMatch || levelMatch) {
+        results.push({ id, name: tractate.name, level: tractate.level, description: tractate.description });
+      }
+    });
+
+    return results;
+  }
+
+  document.getElementById('searchBox').addEventListener('click', () => {
+    if (isResultsHidden) {
+      resultsDiv.style.display = 'block';
+      isResultsHidden = false;
+    }
+  });
+
+  document.getElementById('searchBox').addEventListener('input', e => {
+    const query = e.target.value.trim();
+    resultsDiv.innerHTML = '';
+
+    if (query === '') {
+      resultsDiv.style.display = 'none';
+      return;
+    }
+
+    const results = searchTractates(query);
+    resultsDiv.style.display = 'block';
+    isResultsHidden = false;
+
+    if (results.length > 0) {
+      results.forEach(r => {
+        const item = document.createElement('div');
+        item.className = 'search-item';
+        item.innerHTML = `
+          <div>
+            <img src="images/${r.id}.png" alt="${r.name}" title="${r.name}" style="width:38px;height:38px;">
+            <b>${r.name}</b> (рівень ${r.level})
+          </div>`;
+        item.onclick = () => {
+          showPyramid(r.id);
+          resultsDiv.style.display = 'none';
+          isResultsHidden = true;
+        };
+        resultsDiv.appendChild(item);
+      });
+    } else {
+      const item = document.createElement('div');
+      item.className = 'search-item';
+      item.innerHTML = `<div">Нічого не знайдено</div>`;
+      resultsDiv.appendChild(item);
+    }
+  });
+
+  document.addEventListener('click', e => {
+    if (!resultsDiv.contains(e.target) && e.target !== document.getElementById('searchBox')) {
+      resultsDiv.style.display = 'none';
+      isResultsHidden = true;
+    }
+  });
+
+  loadData();
 </script>
-</body>
+
 </html>
