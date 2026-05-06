@@ -366,8 +366,8 @@
         // Оновити URL без перезавантаження сторінки
     const url = new URL(window.location);
     url.searchParams.set('id', id);
-    //history.pushState({ id }, '', url);
-     history.pushState({ id }, "", "?id=" + id);
+    history.pushState({ id }, '', url);
+     //history.pushState({ id }, "", "?id=" + id);
 
     const counts = collectCounts(id);
     const total = countAll(id);
@@ -514,6 +514,7 @@
   loadData();
     // Навігація кнопками браузера назад / вперед
   window.addEventListener('popstate', e => {
+     console.log("popstate fired!", e.state);
     if (e.state?.id && data?.tractates[e.state.id]) {
       showPyramid(e.state.id);
     }
