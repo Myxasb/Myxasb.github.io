@@ -480,8 +480,8 @@
           "visible": true
         },
         "f15": {
-          "name": "Весняний вітер",
-          "description": "",
+          "name": "Вісімнадцять учнів",
+          "description": "Сила +9 \nСпритність +9\nТіло +8\nІнтелект +9\nЖС +70\nМЕ +80",
           "craft": ["c3", "c7", "c6"],
           "level": 6,
           "visible": true
