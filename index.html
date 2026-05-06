@@ -408,7 +408,7 @@
           <a href="/?id=${t.id}"><p data-tooltip="${t.name} x ${t.count}\n ${desc}">
             <img class="tooltip-img" src="images/${t.id}.png"
                  alt="${t.name} x ${t.count}" style="width:38px;height:38px;"><br>${t.count}
-          </p>`;
+          </p></a>`;
         block.onclick = () => showPyramid(t.id);
         row.appendChild(block);
       });
