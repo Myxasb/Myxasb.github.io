@@ -511,7 +511,7 @@
       isResultsHidden = true;
     }
   });
-
+  loadData();
     // Навігація кнопками браузера назад / вперед
   window.addEventListener('popstate', e => {
     if (e.state?.id && data?.tractates[e.state.id]) {
@@ -526,7 +526,7 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 });
   
-  loadData();
+
 </script>
 
 </html>
