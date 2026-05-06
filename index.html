@@ -517,6 +517,12 @@
       showPyramid(e.state.id);
     }
   });
+  window.addEventListener("DOMContentLoaded", () => {
+  const params = new URLSearchParams(location.search);
+  const id = params.get("id");
+  if (id && data?.tractates[id]) {
+    showPyramid(id);
+  }
   
   loadData();
 </script>
