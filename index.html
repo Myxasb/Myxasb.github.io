@@ -364,10 +364,11 @@
 
   function showPyramid(id) {
         // Оновити URL без перезавантаження сторінки
-    const url = new URL(window.location);
-    url.searchParams.set('id', id);
-    history.pushState({ id }, '', url);
-     console.log("push fired!", url);
+    //const url = new URL(window.location);
+    //url.searchParams.set('id', id);
+    //history.pushState({ id }, '', url);
+     console.log("push fired!", id);
+    history.pushState({ id }, "", "?id=" + id);
      //history.pushState({ id }, "", "?id=" + id);
 
     const counts = collectCounts(id);
