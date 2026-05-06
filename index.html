@@ -526,7 +526,7 @@
   
 window.addEventListener("DOMContentLoaded", () => {
   const params = new URLSearchParams(location.search);
- const id = params.get("id");
+let id = params.get("id");
   console.log(id);
   if (id && data?.tractates[id]) 
  {
