@@ -362,13 +362,15 @@
     return counts;
   }
 
-  function showPyramid(id) {
+  function showPyramid(id, skipPush = false) {
+    if (!skipPush) {
+    history.pushState({ id }, "", "?id=" + id);
+  }
         // Оновити URL без перезавантаження сторінки
     //const url = new URL(window.location);
     //url.searchParams.set('id', id);
     //history.pushState({ id }, '', url);
-     console.log("push fired!", id);
-    history.pushState({ id }, "", "?id=" + id);
+
      //history.pushState({ id }, "", "?id=" + id);
 
     const counts = collectCounts(id);
@@ -410,7 +412,7 @@
             <img class="tooltip-img" src="images/${t.id}.png"
                  alt="${t.name} x ${t.count}" style="width:38px;height:38px;"><br>${t.count}
           </p>`;
-        block.onclick = () => showPyramid(t.id);
+        block.onclick = () => showPyramid(t.id, false);
         row.appendChild(block);
       });
 
@@ -493,7 +495,7 @@
             <b>${r.name}</b> (рівень ${r.level})
           </div>`;
         item.onclick = () => {
-          showPyramid(r.id);
+          showPyramid(r.id, false);
           resultsDiv.style.display = 'none';
           isResultsHidden = true;
         };
@@ -518,18 +520,19 @@
   window.addEventListener('popstate', e => {
      console.log("popstate fired!", e.state);
     if (e.state?.id && data?.tractates[e.state.id]) {
-      showPyramid(e.state.id);
+      showPyramid(e.state.id, true);
     }
   });
-//window.addEventListener("DOMContentLoaded", () => {
-//  const params = new URLSearchParams(location.search);
-//  const id = params.get("id");
-//  console.log(id);
-//  if (id && data?.tractates[id]) 
-//  {
-//    showPyramid(id);
-//  }
-//});
+  
+window.addEventListener("DOMContentLoaded", () => {
+  const params = new URLSearchParams(location.search);
+ const id = params.get("id");
+  console.log(id);
+  if (id && data?.tractates[id]) 
+ {
+    showPyramid(id, false);
+ }
+});
   
 
 </script>
