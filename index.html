@@ -367,6 +367,7 @@
     const url = new URL(window.location);
     url.searchParams.set('id', id);
     history.pushState({ id }, '', url);
+     console.log("push fired!", url);
      //history.pushState({ id }, "", "?id=" + id);
 
     const counts = collectCounts(id);
