@@ -315,6 +315,7 @@
 <script>
   const resultsDiv = document.getElementById('searchResults');
   let isResultsHidden = false;
+  var data={};
 
   async function loadData() {
     const response = await fetch('data.json');
