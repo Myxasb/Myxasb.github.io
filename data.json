@@ -356,7 +356,7 @@
         "e13": {
           "name": "Лють небес",
           "description": "Сила +13\nТіло +12\nЖС +70",
-          "craft": ["c2", "c5", "c3"],
+          "craft": ["d7", "d2", "d4"],
           "level": 5,
           "visible": true
         },
