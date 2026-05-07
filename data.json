@@ -312,9 +312,9 @@
           "visible": true
         },
         "e7": {
-          "name": "Води слабкості",
-          "description": "",
-          "craft": ["c9", "c2", "c6"],
+          "name": "Красива змія",
+          "description": "Сила +20\nЗбільшення швидкості пересування на 0.1м/с",
+          "craft": ["d2", "d4", "d9"],
           "level": 5,
           "visible": true
         },
@@ -354,8 +354,8 @@
           "visible": true
         },
         "e13": {
-          "name": "Шипи троянд",
-          "description": "",
+          "name": "Лють небес",
+          "description": "Сила +13\nТіло +12\nЖС +70",
           "craft": ["c2", "c5", "c3"],
           "level": 5,
           "visible": true
@@ -466,9 +466,9 @@
           "visible": true
         },
         "f13": {
-          "name": "Шипи троянд",
-          "description": "",
-          "craft": ["c2", "c5", "c3"],
+          "name": "Вселенська лють",
+          "description": "Сила +13\nТіло +12\nЗменшення фізичної шкоди +6%",
+          "craft": ["e13", "e7", "e14"],
           "level": 6,
           "visible": true
         },
