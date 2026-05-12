@@ -6,295 +6,433 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Повний шлях крафту</title>
   <style>
-    /* ── Reset & Base ─────────────────────────────── */
-    html,
-    body {
-      height: 100%;
-      margin: 0;
-      font-family: Arial, sans-serif;
-      color: white;
-      text-align: center;
-      min-width: 240px;
-    }
+        /* ── Reset & Base ─────────────────────────────── */
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+            min-width: 240px;
+        }
 
-    /* ── Layout ───────────────────────────────────── */
-    .page-wrapper {
-      min-height: 100%;
-      display: flex;
-      flex-direction: column;
-      background: #ffffff;
-    }
+        /* ── Layout ───────────────────────────────────── */
+        .page-wrapper {
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+            background: #ffffff;
+        }
 
-    .content {
-      flex: 1;
-      background: #111;
-      padding-top: 15px;
-      min-width: 240px;
-    }
+        .content {
+            flex: 1;
+            background: #111;
+            padding-top: 15px;
+            min-width: 240px;
+        }
 
-    .content a {
-      text-decoration: none;
-      color: white;
-      /* або будь-який колір, який тобі потрібен */
-    }
+        .content a {
+            text-decoration: none;
+            color: white;
+            /* або будь-який колір, який тобі потрібен */
+        }
 
-    /* ── Header ───────────────────────────────────── */
-    .site-header {
-      background: #000;
-      color: #fff;
-      padding: 15px 40px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
+        /* ── Header ───────────────────────────────────── */
+        .site-header {
+            background: #000;
+            color: #fff;
+            padding: 15px 40px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
-    .site-header .header-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+        .site-header .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    .site-header .logo h1 {
-      margin: 0;
-      font-size: 1.5em;
-      color: #fff;
-    }
+        .site-header .logo h1 {
+            margin: 0;
+            font-size: 1.5em;
+            color: #fff;
+        }
 
-    .nav-menu ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-    }
+        .nav-menu ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
 
-    .nav-menu ul li {
-      margin-left: 20px;
-    }
+        .nav-menu ul li {
+            margin-left: 20px;
+        }
 
-    .nav-menu ul li a {
-      color: #bbb;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
+        .nav-menu ul li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
 
-    .nav-menu ul li a:hover {
-      color: #fff;
-    }
+        .nav-menu ul li a:hover {
+            color: #fff;
+        }
 
-    /* ── Footer ───────────────────────────────────── */
-    .site-footer {
-      background: #000;
-      color: #ddd;
-      padding: 10px 20px;
-    }
+        /* ── Footer ───────────────────────────────────── */
+        .site-footer {
+            background: #000;
+            color: #ddd;
+            padding: 10px 20px;
+        }
 
-    .site-footer .footer-content {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
+        .site-footer .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
 
-    .site-footer h3 {
-      color: #fff;
-    }
+        .site-footer h3 {
+            color: #fff;
+        }
 
-    .site-footer ul {
-      list-style: none;
-      padding: 0;
-    }
+        .site-footer ul {
+            list-style: none;
+            padding: 0;
+        }
 
-    .site-footer ul li {
-      margin: 5px 0;
-    }
+        .site-footer ul li {
+            margin: 5px 0;
+        }
 
-    .site-footer ul li a {
-      color: #bbb;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
+        .site-footer ul li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
 
-    .site-footer ul li a:hover {
-      color: #fff;
-    }
+        .site-footer ul li a:hover {
+            color: #fff;
+        }
 
-    .footer-right {
-      font-size: 0.9em;
-      color: #888;
-      text-align: right;
-    }
+        .footer-right {
+            font-size: 0.9em;
+            color: #888;
+            text-align: right;
+        }
 
-    /* ── Search ───────────────────────────────────── */
-    #searchResults {
-      display: none;
-      position: absolute;
-      top: 200px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 420px;
-      max-height: 300px;
-      overflow-y: auto;
-      background: #111;
-      color: #ddd;
-      border: 1px solid #333;
-      border-radius: 6px;
-      padding: 10px;
-      z-index: 999;
-    }
+        /* ── Search ───────────────────────────────────── */
+        #searchResults {
+            display: none;
+            position: absolute;
+            top: calc(25% + 30px);
+            left: 50%;
+            transform: translateX(-50%);
+            width: 420px;
+            max-height: 300px;
+            overflow-y: auto;
+            background: #111;
+            color: #ddd;
+            border: 1px solid #333;
+            border-radius: 6px;
+            padding: 10px;
+            z-index: 999;
+        }
 
-    .search-item {
-      display: flex;
-      align-items: center;
-      padding: 8px 12px;
-      border-bottom: 1px solid #222;
-      cursor: pointer;
-    }
+        .search-item {
+            display: flex;
+            align-items: center;
+            padding: 8px 12px;
+            border-bottom: 1px solid #222;
+            cursor: pointer;
+        }
 
-    .search-item img {
-      margin-right: 10px;
-    }
+        .search-item img {
+            margin-right: 10px;
+        }
 
-    .search-item:hover {
-      background: #222;
-    }
+        .search-item:hover {
+            background: #222;
+        }
 
-    /* ── Tractate cards ───────────────────────────── */
-    .tractate-name {
-      display: inline-block;
-      margin: 10px;
-      padding: 10px;
-      border: 1px solid #333;
-      cursor: pointer;
-      color: gray;
-    }
+        /* ── Tractate cards ───────────────────────────── */
+        .tractate-name {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #333;
+            cursor: pointer;
+            color: gray;
+        }
 
-    /* ── Pyramid rows ─────────────────────────────── */
-    .level {
-      margin: 2px 0;
-    }
+        /* ── Pyramid rows ─────────────────────────────── */
+        .level {
+            margin: 2px 0;
+        }
 
-    .tractate p {
-      margin: 2px 0;
-    }
+        .tractate p {
+            margin: 2px 0;
+        }
 
-    .craft-path {
-      margin: 15px auto;
-      border: 1px solid #666;
-      padding: 10px;
-      width: 70%;
-      text-align: left;
-    }
+        .craft-path {
+            margin: 15px auto;
+            border: 1px solid #666;
+            padding: 10px;
+            width: 70%;
+            text-align: left;
+        }
 
-    ul {
-      list-style: none;
-      padding-left: 20px;
-    }
+        ul {
+            list-style: none;
+            padding-left: 20px;
+        }
 
-    li {
-      margin: 5px 0;
-    }
+        li {
+            margin: 5px 0;
+        }
 
-    /* ── Summary ──────────────────────────────────── */
-    #summary {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      padding: 12px 0;
-    }
+        /* ── Summary ──────────────────────────────────── */
+        #summary {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 12px 0;
+        }
 
-    #summary [data-tooltip] {
-      display: flex;
-      align-items: center;
-    }
+        #summary [data-tooltip] {
+            display: flex;
+            align-items: center;
+        }
 
-    #summary [data-tooltip]::after {
-      bottom: auto;
-      top: calc(100% + 30px);
-    }
+        #summary [data-tooltip]::after {
+            bottom: auto;
+            top: calc(100% + 30px);
+        }
 
-    #summary [data-tooltip]::before {
-      bottom: auto;
-      top: calc(100%);
-      content: '';
-      border: 10px solid transparent;
-      border-bottom: 10px solid gray;
-    }
+        #summary [data-tooltip]::before {
+            bottom: auto;
+            top: calc(100%);
+            content: '';
+            border: 10px solid transparent;
+            border-bottom: 10px solid gray;
+        }
 
-    #summary h3 {
-      margin: 0;
-    }
+        #summary h3 {
+            margin: 0;
+        }
 
-    /* ── Tooltip ──────────────────────────────────── */
-    p [data-tooltip] img {
-      justify-content: center;
-    }
+        /* ── Tooltip ──────────────────────────────────── */
+        p [data-tooltip] img {
+            justify-content: center;
+        }
 
-    [data-tooltip] {
-      position: relative;
-      cursor: pointer;
-      width: max-content;
-    }
+        [data-tooltip] {
+            position: relative;
+            cursor: pointer;
+            width: max-content;
+        }
 
-    [data-tooltip]::after,
-    [data-tooltip]::before {
-      position: absolute;
-      left: 50%;
-      display: block;
-      opacity: 0;
-      visibility: hidden;
-      transition: 0.3s;
-      transform: translateX(-50%);
-    }
+        [data-tooltip]::after,
+        [data-tooltip]::before {
+            position: absolute;
+            left: 50%;
+            display: block;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s;
+            transform: translateX(-50%);
+        }
 
-    [data-tooltip]:hover::after,
-    [data-tooltip]:hover::before {
-      opacity: 1;
-      visibility: visible;
-      z-index: 99999;
-      white-space: pre-line;
-    }
+        [data-tooltip]:hover::after,
+        [data-tooltip]:hover::before {
+            opacity: 1;
+            visibility: visible;
+            z-index: 99999;
+            white-space: pre-line;
+        }
 
-    [data-tooltip]::after {
-      bottom: auto;
-      top: calc(100% + 30px);
-      content: attr(data-tooltip);
-      padding: 8px;
-      border-radius: 8px;
-      background: gray;
-      text-align: center;
-      width: max-content;
-    }
+        [data-tooltip]::after {
+            bottom: auto;
+            top: calc(100% + 30px);
+            content: attr(data-tooltip);
+            padding: 8px;
+            border-radius: 8px;
+            background: gray;
+            text-align: center;
+            width: max-content;
+        }
 
-    [data-tooltip]::before {
-      bottom: auto;
-      top: calc(100%);
-      content: '';
-      border: 10px solid transparent;
-      border-bottom: 10px solid gray;
-    }
+        [data-tooltip]::before {
+            bottom: auto;
+            top: calc(100%);
+            content: '';
+            border: 10px solid transparent;
+            border-bottom: 10px solid gray;
+        }
 
-    #editor {
-      background: #222;
-      color: #eee;
-      padding: 15px;
-      border-radius: 8px;
-      max-width: 400px;
-    }
+        #editor {
+            background: #222;
+            color: #eee;
+            padding: 15px;
+            border-radius: 8px;
+            max-width: 400px;
+        }
 
-    #editor input,
-    #editor textarea {
-      width: 100%;
-      margin-bottom: 10px;
-    }
+        #editor input,
+        #editor textarea {
+            width: 100%;
+            margin-bottom: 10px;
+        }
 
-    #craftList {
-      max-height: 150px;
-      overflow-y: auto;
-      border: 1px solid #444;
-      padding: 5px;
-    }
-  </style>
+        #craftList {
+            max-height: 150px;
+            overflow-y: auto;
+            border: 1px solid #444;
+            padding: 5px;
+        }
+
+        /* ── Responsive Medias ────────────────────────── */
+        @media (max-width: 768px) {
+            .site-header {
+                padding: 10px 20px;
+            }
+
+            .site-header .header-content {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .logo img {
+                width: 180px !important;
+                height: auto !important;
+            }
+
+            .logo h1 {
+                font-size: 1.2em;
+            }
+
+            #searchBox {
+                width: 90%;
+                font-size: 16px;
+                /* Prevent zooming on iOS */
+            }
+
+            #searchResults {
+                width: 90%;
+                top: calc(25%+30px);
+            }
+
+            .craft-path {
+                width: 95%;
+                padding: 8px;
+                font-size: 0.9em;
+            }
+
+            .site-footer .footer-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+
+            .footer-right {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo img {
+                width: 150px !important;
+            }
+
+            .logo h1 {
+                font-size: 1em;
+            }
+
+            .tractate-name {
+                margin: 5px;
+                padding: 8px;
+                font-size: 0.8em;
+            }
+
+            #summary h3 {
+                font-size: 1.1em;
+            }
+        }
+
+        /* ── Aesthetics Polish ────────────────────────── */
+        body {
+            background-color: var(--bg-color, #111);
+            scroll-behavior: smooth;
+        }
+
+        .site-header {
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        #searchBox {
+            background: #222;
+            border: 1px solid #444;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            outline: none;
+            margin-top: 10px;
+        }
+
+        #searchBox:focus {
+            border-color: #ffcb4a;
+            box-shadow: 0 0 8px rgba(255, 203, 74, 0.4);
+        }
+
+        .tractate-name {
+            border-radius: 6px;
+            background: #1a1a1a;
+            transition: all 0.2s;
+        }
+
+        .tractate-name:hover {
+            background: #252525;
+            color: #fff;
+            border-color: #ffcb4a;
+            transform: translateY(-2px);
+        }
+
+        .craft-path {
+            background: #161616;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        #pyramid {
+
+            padding-bottom: 20px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #111;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #444;
+        }
+    </style>
 </head>
 
 <body>
