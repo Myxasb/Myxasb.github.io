@@ -1,497 +1,2495 @@
 {
       "tractates": {
-        "fragment": {
-          "name": "Уривок небесного трактату",
-          "description": "",
-          "craft": [],
-          "level": 0,
-          "visible": false
-        },
-        "page": {
-          "name": "Небесна сторінка",
-          "description": "",
-          "craft": [],
-          "level": 0,
-          "visible": false
-        },
-        "a1": {
-          "name": "Один проти цілої армії",
-          "description": "",
-          "craft": ["fragment", "fragment", "fragment", "page", "page", "page", "page"],
-          "level": 1,
-          "visible": true
-        },
-        "a2": {
-          "name": "Розквітли персикові дерева",
-          "description": "",
-          "craft": ["fragment", "fragment", "fragment", "page", "page", "page", "page"],
-          "level": 1,
-          "visible": true
-        },
-        "a3": {
-          "name": "Вогонь дій",
-          "description": "",
-          "craft": ["fragment", "fragment", "fragment", "page", "page", "page", "page"],
-          "level": 1,
-          "visible": true
-        },
-        "a4": {
-          "name": "Величезний дух",
-          "description": "",
-          "craft": ["fragment", "fragment", "fragment", "page", "page", "page", "page"],
-          "level": 1,
-          "visible": true
-        },
-        "a5": {
-          "name": "Період руйнувань",
-          "description": "",
-          "craft": ["fragment", "fragment", "fragment", "page", "page", "page", "page"],
-          "level": 1,
-          "visible": true
-        },
-        "a6": {
-          "name": "Неможливе",
-          "description": "",
-          "craft": ["fragment", "fragment", "fragment", "page", "page", "page", "page"],
-          "level": 1,
-          "visible": true
-        },
-        "a7": {
-          "name": "Сміх з квітами в руках",
-          "description": "",
-          "craft": ["fragment", "fragment", "fragment", "page", "page", "page", "page"],
-          "level": 1,
-          "visible": true
-        },
-        "a8": {
-          "name": "Червона річка",
-          "description": "",
-          "craft": ["fragment", "fragment", "fragment", "page", "page", "page", "page"],
-          "level": 1,
-          "visible": true
-        },
-        "a9": {
-          "name": "Місяць вогняних ночей",
-          "description": "",
-          "craft": ["fragment", "fragment", "fragment", "page", "page", "page", "page"],
-          "level": 1,
-          "visible": true
-        },
-
-        "b1": {
-          "name": "Піднімаємо 1000 цзюнь",
-          "description": "",
-          "craft": ["a1", "a4", "a6"],
-          "level": 2,
-          "visible": true
-        },
-        "b2": {
-          "name": "Туманний дощ квітів сливи",
-          "description": "",
-          "craft": ["a2", "a5", "a6"],
-          "level": 2,
-          "visible": true
-        },
-        "b3": {
-          "name": "Червоний лотос",
-          "description": "",
-          "craft": ["a3", "a7", "a2"],
-          "level": 2,
-          "visible": true
-        },
-        "b4": {
-          "name": "Воїн Чі Ю",
-          "description": "",
-          "craft": ["a1", "a4", "a3"],
-          "level": 2,
-          "visible": true
-        },
-        "b5": {
-          "name": "Стулки квітів персика",
-          "description": "",
-          "craft": ["a2", "a5", "a7"],
-          "level": 2,
-          "visible": true
-        },
-        "b6": {
-          "name": "Під фортецею",
-          "description": "",
-          "craft": ["a6", "a1", "a3"],
-          "level": 2,
-          "visible": true
-        },
-        "b7": {
-          "name": "Справжній вогонь самадхи",
-          "description": "",
-          "craft": ["a7", "a3", "a4"],
-          "level": 2,
-          "visible": true
-        },
-        "b8": {
-          "name": "Вовк вбивця",
-          "description": "",
-          "craft": ["a8", "a3", "a1"],
-          "level": 2,
-          "visible": true
-        },
-        "b9": {
-          "name": "Фенікс, що купається у вогні",
-          "description": "",
-          "craft": ["a9", "a3", "a7"],
-          "level": 2,
-          "visible": true
-        },
-
-        "c1": {
-          "name": "Насолоджуйся життям, поки можна",
-          "description": "",
-          "craft": ["b1", "b6", "b3"],
-          "level": 3,
-          "visible": true
-        },
-        "c2": {
-          "name": "Захід сонця",
-          "description": "",
-          "craft": ["b2", "b5", "b6"],
-          "level": 3,
-          "visible": true
-        },
-        "c3": {
-          "name": "Злодійство",
-          "description": "",
-          "craft": ["b7", "b3", "b2"],
-          "level": 3,
-          "visible": true
-        },
-        "c4": {
-          "name": "Широкий шлях",
-          "description": "",
-          "craft": ["b4", "b1", "b3"],
-          "level": 3,
-          "visible": true
-        },
-        "c5": {
-          "name": "Аромат красуні",
-          "description": "",
-          "craft": ["b5", "b2", "b1"],
-          "level": 3,
-          "visible": true
-        },
-        "c6": {
-          "name": "Прощальна пісня",
-          "description": "",
-          "craft": ["b6", "b3", "b1"],
-          "level": 3,
-          "visible": true
-        },
-        "c7": {
-          "name": "Холоднокровна людина",
-          "description": "",
-          "craft": ["b7", "b5", "b4"],
-          "level": 3,
-          "visible": true
-        },
-        "c8": {
-          "name": "Поразка та розпад",
-          "description": "",
-          "craft": ["b8", "b2", "b4"],
-          "level": 3,
-          "visible": true
-        },
-        "c9": {
-          "name": "Сморід",
-          "description": "",
-          "craft": ["b9", "b3", "b2"],
-          "level": 3,
-          "visible": true
-        },
-
-        "d1": {
-          "name": "Буддистські почуття",
-          "description": "",
-          "craft": ["c3", "c7", "c4"],
-          "level": 4,
-          "visible": true
-        },
-        "d2": {
-          "name": "Фаталізм",
-          "description": "",
-          "craft": ["c4", "c1", "c5"],
-          "level": 4,
-          "visible": true
-        },
-        "d3": {
-          "name": "Шипи троянд",
-          "description": "",
-          "craft": ["c2", "c5", "c3"],
-          "level": 4,
-          "visible": true
-        },
-        "d4": {
-          "name": "Заворушення",
-          "description": "Тіло +20",
-          "craft": ["c6", "c7", "c1"],
-          "level": 4,
-          "visible": true
-        },
-        "d5": {
-          "name": "Весняний вітер",
-          "description": "",
-          "craft": ["c3", "c7", "c6"],
-          "level": 4,
-          "visible": true
-        },
-        "d6": {
-          "name": "Південь ріки Янцзи",
-          "description": "",
-          "craft": ["c8", "b5", "b7"],
-          "level": 4,
-          "visible": true
-        },
-        "d7": {
-          "name": "Води слабкості",
-          "description": "",
-          "craft": ["c9", "c2", "c6"],
-          "level": 4,
-          "visible": true
-        },
-        "d8": {
-          "name": "Вітер тигрів - хмари драконів",
-          "description": "",
-          "craft": ["c1", "c4", "c2"],
-          "level": 4,
-          "visible": true
-        },
-        "d9": {
-          "name": "Заклик духів",
-          "description": "",
-          "craft": ["c2", "c5", "c3"],
-          "level": 4,
-          "visible": true
-        },
-		"e1": {
-          "name": "Буддистські почуття",
-          "description": "",
-          "craft": ["c3", "c7", "c4"],
-          "level": 5,
-          "visible": true
-        },
-        "e2": {
-          "name": "Фаталізм",
-          "description": "",
-          "craft": ["c4", "c1", "c5"],
-          "level": 5,
-          "visible": true
-        },
-        "e3": {
-          "name": "Шипи троянд",
-          "description": "",
-          "craft": ["c2", "c5", "c3"],
-          "level": 5,
-          "visible": true
-        },
-        "e4": {
-          "name": "Заворушення",
-          "description": "Тіло +20",
-          "craft": ["c6", "c7", "c1"],
-          "level": 5,
-          "visible": true
-        },
-        "e5": {
-          "name": "Весняний вітер",
-          "description": "",
-          "craft": ["c3", "c7", "c6"],
-          "level": 5,
-          "visible": true
-        },
-        "e6": {
-          "name": "Південь ріки Янцзи",
-          "description": "",
-          "craft": ["c8", "b5", "b7"],
-          "level": 5,
-          "visible": true
-        },
-        "e7": {
-          "name": "Красива змія",
-          "description": "Сила +20\nЗбільшення швидкості пересування на 0.1м/с",
-          "craft": ["d2", "d4", "d9"],
-          "level": 5,
-          "visible": true
-        },
-        "e8": {
-          "name": "Вітер тигрів - хмари драконів",
-          "description": "",
-          "craft": ["c1", "c4", "c2"],
-          "level": 5,
-          "visible": true
-        },
-        "e9": {
-          "name": "Заклик духів",
-          "description": "",
-          "craft": ["c2", "c5", "c3"],
-          "level": 5,
-          "visible": true
-        },
-		"e10": {
-          "name": "Буддистські почуття",
-          "description": "",
-          "craft": ["c3", "c7", "c4"],
-          "level": 5,
-          "visible": true
-        },
-		"e11": {
-          "name": "Буддистські почуття",
-          "description": "",
-          "craft": ["c3", "c7", "c4"],
-          "level": 5,
-          "visible": true
-        },
-        "e12": {
-          "name": "Фаталізм",
-          "description": "",
-          "craft": ["c4", "c1", "c5"],
-          "level": 5,
-          "visible": true
-        },
-        "e13": {
-          "name": "Лють небес",
-          "description": "Сила +13\nТіло +12\nЖС +70",
-          "craft": ["d7", "d2", "d4"],
-          "level": 5,
-          "visible": true
-        },
-        "e14": {
-          "name": "Дотик малинових губ",
-          "description": "Сила +13 \nТіло +12\nШанс критичного удару +1%",
-          "craft": ["d8", "d2", "d4"],
-          "level": 5,
-          "visible": true
-        },
-        "e15": {
-          "name": "Тринадцять хуліганів",
-          "description": "",
-          "craft": ["d6", "d7", "d1"],
-          "level": 5,
-          "visible": true
-        },
-        "e16": {
-          "name": "Порожнє дзеркало",
-          "description": "",
-          "craft": ["d6", "d7", "d1"],
-          "level": 5,
-          "visible": true
-        },
-		"f1": {
-          "name": "Буддистські почуття",
-          "description": "",
-          "craft": ["c3", "c7", "c4"],
-          "level": 6,
-          "visible": true
-        },
-        "f2": {
-          "name": "Фаталізм",
-          "description": "",
-          "craft": ["c4", "c1", "c5"],
-          "level": 6,
-          "visible": true
-        },
-        "f3": {
-          "name": "Шипи троянд",
-          "description": "",
-          "craft": ["c2", "c5", "c3"],
-          "level": 6,
-          "visible": true
-        },
-        "f4": {
-          "name": "Заворушення",
-          "description": "Тіло +20",
-          "craft": ["c6", "c7", "c1"],
-          "level": 6,
-          "visible": true
-        },
-        "f5": {
-          "name": "Весняний вітер",
-          "description": "",
-          "craft": ["c3", "c7", "c6"],
-          "level": 6,
-          "visible": true
-        },
-        "f6": {
-          "name": "Південь ріки Янцзи",
-          "description": "",
-          "craft": ["c8", "b5", "b7"],
-          "level": 6,
-          "visible": true
-        },
-        "f7": {
-          "name": "Води слабкості",
-          "description": "",
-          "craft": ["c9", "c2", "c6"],
-          "level": 6,
-          "visible": true
-        },
-        "f8": {
-          "name": "Вітер тигрів - хмари драконів",
-          "description": "",
-          "craft": ["c1", "c4", "c2"],
-          "level": 6,
-          "visible": true
-        },
-        "f9": {
-          "name": "Заклик духів",
-          "description": "",
-          "craft": ["c2", "c5", "c3"],
-          "level": 6,
-          "visible": true
-        },
-		"f10": {
-          "name": "Буддистські почуття",
-          "description": "",
-          "craft": ["c3", "c7", "c4"],
-          "level": 6,
-          "visible": true
-        },
-		"f11": {
-          "name": "Буддистські почуття",
-          "description": "",
-          "craft": ["c3", "c7", "c4"],
-          "level": 6,
-          "visible": true
-        },
-        "f12": {
-          "name": "Фаталізм",
-          "description": "",
-          "craft": ["c4", "c1", "c5"],
-          "level": 6,
-          "visible": true
-        },
-        "f13": {
-          "name": "Вселенська лють",
-          "description": "Сила +13\nТіло +12\nЗменшення фізичної шкоди +6%",
-          "craft": ["e13", "e7", "e14"],
-          "level": 6,
-          "visible": true
-        },
-        "f14": {
-          "name": "Заворушення",
-          "description": "Тіло +20",
-          "craft": ["c6", "c7", "c1"],
-          "level": 6,
-          "visible": true
-        },
-        "f15": {
-          "name": "Вісімнадцять учнів",
-          "description": "Сила +9 \nСпритність +9\nТіло +8\nІнтелект +9\nЖС +70\nМЕ +80",
-          "craft": ["c3", "c7", "c6"],
-          "level": 6,
-          "visible": true
-        },
-        "f16": {
-          "name": "Бог Пань Гу",
-          "description": "Сила +9 \n Спритність +9\n Тіло +8\n Інтелект +9\n Шанс критичного удару +1%\n Час активації -1%\n Затримка атаки -0.05сек",
-          "craft": ["e16", "e15", "e14"],
-          "level": 6,
-          "visible": true
+       
+        "17579": {
+            "_id": 17579,
+            "name": "Один проти цілої армії",
+            "level": 1,
+            "_color": {
+                "color_id": 3
+            },
+            "_description": {
+                "description": "^ffcb4aСила +4\nТіло +3\n^00ffffЗалишіть своє життя.",
+                "plain_text": "Сила +4\nТіло +3\nЗалишіть своє життя."
+            },
+            "_icons": [
+                "iconset/m/天书_一夫当关.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17810",
+                            "value": 3
+                        },
+                        {
+                            "item_id": "18185",
+                            "value": 4
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17580": {
+            "_id": 17580,
+            "name": "Розквітли персикові дерева",
+            "level": 1,
+            "_color": {
+                "color_id": 3
+            },
+            "_description": {
+                "description": "^ffcb4aСпритність +4 \nТіло +3 \n^00ffffПрекрасна сливова квітка.",
+                "plain_text": "Спритність +4 \nТіло +3 \nПрекрасна сливова квітка."
+            },
+            "_icons": [
+                "iconset/m/天书_桃之夭夭.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17810",
+                            "value": 3
+                        },
+                        {
+                            "item_id": "18185",
+                            "value": 4
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17581": {
+            "_id": 17581,
+            "name": "Вогонь дій",
+            "level": 1,
+            "_color": {
+                "color_id": 3
+            },
+            "_description": {
+                "description": "^ffcb4aІнтелект +4 \nТіло +3 \n^00ffffВідпустить усі гріхи.",
+                "plain_text": "Інтелект +4 \nТіло +3 \nВідпустить усі гріхи."
+            },
+            "_icons": [
+                "iconset/m/天书_业火.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17810",
+                            "value": 3
+                        },
+                        {
+                            "item_id": "18185",
+                            "value": 4
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17582": {
+            "_id": 17582,
+            "name": "Величезний дух",
+            "level": 1,
+            "_color": {
+                "color_id": 3
+            },
+            "_description": {
+                "description": "^ffcb4aСила +5 \n^00ffffБандит.",
+                "plain_text": "Сила +5 \nБандит."
+            },
+            "_icons": [
+                "iconset/m/天书_巨灵.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17810",
+                            "value": 3
+                        },
+                        {
+                            "item_id": "18185",
+                            "value": 4
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17583": {
+            "_id": 17583,
+            "name": "Період руйнувань",
+            "level": 1,
+            "_color": {
+                "color_id": 3
+            },
+            "_description": {
+                "description": "^ffcb4aСпритність +5 \n^00ffffІм'я залишається у віках.",
+                "plain_text": "Спритність +5 \nІм'я залишається у віках."
+            },
+            "_icons": [
+                "iconset/m/天书_破阵子.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17810",
+                            "value": 3
+                        },
+                        {
+                            "item_id": "18185",
+                            "value": 4
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17584": {
+            "_id": 17584,
+            "name": "Неможливе",
+            "level": 1,
+            "_color": {
+                "color_id": 3
+            },
+            "_description": {
+                "description": "^ffcb4aТіло +5 \n^00ffffІде раніше, приходить пізніше.",
+                "plain_text": "Тіло +5 \nІде раніше, приходить пізніше."
+            },
+            "_icons": [
+                "iconset/m/天书_夸父.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17810",
+                            "value": 3
+                        },
+                        {
+                            "item_id": "18185",
+                            "value": 4
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17585": {
+            "_id": 17585,
+            "name": "Сміх з квітами в руках",
+            "level": 1,
+            "_color": {
+                "color_id": 3
+            },
+            "_description": {
+                "description": "^ffcb4aІнтелект +5 \n^00ffffВід демона до бога один крок.",
+                "plain_text": "Інтелект +5 \nВід демона до бога один крок."
+            },
+            "_icons": [
+                "iconset/m/天书_捻花一笑.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17810",
+                            "value": 3
+                        },
+                        {
+                            "item_id": "18185",
+                            "value": 4
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17586": {
+            "_id": 17586,
+            "name": "Піднімаємо 1000 цзюнь",
+            "level": 2,
+            "_color": {
+                "color_id": 3
+            },
+            "_description": {
+                "description": "^ffcb4aСила +7 \nТіло +6 \n^00ffffСила не так духу, як тіла.",
+                "plain_text": "Сила +7 \nТіло +6 \nСила не так духу, як тіла."
+            },
+            "_icons": [
+                "iconset/m/天书_力拔千钧.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17579",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17582",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17584",
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17587": {
+            "_id": 17587,
+            "name": "Туманний дощ квітів сливи",
+            "level": 2,
+            "_color": {
+                "color_id": 3
+            },
+            "_description": {
+                "description": "^ffcb4aСпритність +7 \nТіло +6 \n^00ffffКвітка, що впала, чудова.",
+                "plain_text": "Спритність +7 \nТіло +6 \nКвітка, що впала, чудова."
+            },
+            "_icons": [
+                "iconset/m/天书_梨花烟雨.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17580",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17583",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17584",
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17588": {
+            "_id": 17588,
+            "name": "Червоний лотос",
+            "level": 2,
+            "_color": {
+                "color_id": 3
+            },
+            "_description": {
+                "description": "^ffcb4aІнтелект +7 \nТіло +6 \n^00ffffЧервоний лотос цвіте у трьох тисячах світів.",
+                "plain_text": "Інтелект +7 \nТіло +6 \nЧервоний лотос цвіте у трьох тисячах світів."
+            },
+            "_icons": [
+                "iconset/m/天书_红莲.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17580",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17581",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17585",
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17589": {
+            "_id": 17589,
+            "name": "Воїн Чі Ю",
+            "level": 2,
+            "_color": {
+                "color_id": 3
+            },
+            "_description": {
+                "description": "^ffcb4aСила +10 \n^00ffffГерой нічого не боїться.",
+                "plain_text": "Сила +10 \nГерой нічого не боїться."
+            },
+            "_icons": [
+                "iconset/m/天书_蚩尤.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17579",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17581",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17582",
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17590": {
+            "_id": 17590,
+            "name": "Стулки квітів персика",
+            "level": 2,
+            "_color": {
+                "color_id": 3
+            },
+            "_description": {
+                "description": "^ffcb4aСпритність +10 \n^00ffffКвітка персика померла від крові.",
+                "plain_text": "Спритність +10 \nКвітка персика померла від крові."
+            },
+            "_icons": [
+                "iconset/m/天书_桃花扇.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17580",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17583",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17585",
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17591": {
+            "_id": 17591,
+            "name": "Під фортецею",
+            "level": 2,
+            "_color": {
+                "color_id": 3
+            },
+            "_description": {
+                "description": "^ffcb4aТіло +10 \n^00ffffСпочатку пролунав стукіт, решта пішла за звуком.",
+                "plain_text": "Тіло +10 \nСпочатку пролунав стукіт, решта пішла за звуком."
+            },
+            "_icons": [
+                "iconset/m/天书_塞下.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17579",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17581",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17584",
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17592": {
+            "_id": 17592,
+            "name": "Справжній вогонь самадхи",
+            "level": 2,
+            "_color": {
+                "color_id": 3
+            },
+            "_description": {
+                "description": "^ffcb4aІнтелект +10 \n^00ffffЧорна земля розпалася до червоного і виникло криваве море.",
+                "plain_text": "Інтелект +10 \nЧорна земля розпалася до червоного і виникло криваве море."
+            },
+            "_icons": [
+                "iconset/m/天书_三昧真火.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17581",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17582",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17585",
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17593": {
+            "_id": 17593,
+            "name": "Насолоджуйся життям, поки можна",
+            "level": 3,
+            "_color": {
+                "color_id": 3
+            },
+            "_description": {
+                "description": "^ffcb4aСила +9 \nТіло +8 \n^00ffffЧудовий напій.",
+                "plain_text": "Сила +9 \nТіло +8 \nЧудовий напій."
+            },
+            "_icons": [
+                "iconset/m/天书_对酒当歌.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17586",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17588",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17591",
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17594": {
+            "_id": 17594,
+            "name": "Захід сонця",
+            "level": 3,
+            "_color": {
+                "color_id": 3
+            },
+            "_description": {
+                "description": "^ffcb4aСпритність +9\nТіло +8\n^00ffffПошук снігу у місячному світлі.",
+                "plain_text": "Спритність +9\nТіло +8\nПошук снігу у місячному світлі."
+            },
+            "_icons": [
+                "iconset/m/天书_烟光残照.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17587",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17590",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17591",
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17595": {
+            "_id": 17595,
+            "name": "Злодійство",
+            "level": 3,
+            "_color": {
+                "color_id": 3
+            },
+            "_description": {
+                "description": "^ffcb4aІнтелект +9 \nТіло +8 \n^00ffffКриваве море та хвіст дракона.",
+                "plain_text": "Інтелект +9 \nТіло +8 \nКриваве море та хвіст дракона."
+            },
+            "_icons": [
+                "iconset/m/天书_赤炼.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17587",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17588",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17592",
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17596": {
+            "_id": 17596,
+            "name": "Широкий шлях",
+            "level": 3,
+            "_color": {
+                "color_id": 3
+            },
+            "_description": {
+                "description": "^ffcb4aСила +15 \n^00ffffВипити чашу, коли нікого немає поряд.",
+                "plain_text": "Сила +15 \nВипити чашу, коли нікого немає поряд."
+            },
+            "_icons": [
+                "iconset/m/天书_阳关.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17586",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17588",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17589",
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17597": {
+            "_id": 17597,
+            "name": "Аромат красуні",
+            "level": 3,
+            "_color": {
+                "color_id": 3
+            },
+            "_description": {
+                "description": "^ffcb4aСпритність +15 \n^00ffffНемає тіні, немає слідів.",
+                "plain_text": "Спритність +15 \nНемає тіні, немає слідів."
+            },
+            "_icons": [
+                "iconset/m/天书_美人香.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17586",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17587",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17590",
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17598": {
+            "_id": 17598,
+            "name": "Прощальна пісня",
+            "level": 3,
+            "_color": {
+                "color_id": 3
+            },
+            "_description": {
+                "description": "^ffcb4aТіло +15 \n^00ffffХто почує пісню, що лунає з дому?",
+                "plain_text": "Тіло +15 \nХто почує пісню, що лунає з дому?"
+            },
+            "_icons": [
+                "iconset/m/天书_离歌.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17586",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17588",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17591",
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17599": {
+            "_id": 17599,
+            "name": "Холоднокровна людина",
+            "level": 3,
+            "_color": {
+                "color_id": 3
+            },
+            "_description": {
+                "description": "^ffcb4aІнтелект +15\n^00ffffГаряче серце, холодна кров.",
+                "plain_text": "Інтелект +15\nГаряче серце, холодна кров."
+            },
+            "_icons": [
+                "iconset/m/天书_玉壶冰心.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17589",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17590",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17592",
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17600": {
+            "_id": 17600,
+            "name": "Вітер тигрів - хмари драконів",
+            "level": 4,
+            "_color": {
+                "color_id": 3
+            },
+            "_description": {
+                "description": "^ffcb4aСила +13\nТіло +12\n^00ffffЦе доля – зустріти всі складнощі.",
+                "plain_text": "Сила +13\nТіло +12\nЦе доля – зустріти всі складнощі."
+            },
+            "_icons": [
+                "iconset/m/天书_风虎云龙.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17593",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17594",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17596",
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17601": {
+            "_id": 17601,
+            "name": "Заклик духів",
+            "level": 4,
+            "_color": {
+                "color_id": 3
+            },
+            "_description": {
+                "description": "^ffcb4aСпритність +13\nТіло +12\n^00ffffВино може вбратися в душу.",
+                "plain_text": "Спритність +13\nТіло +12\nВино може вбратися в душу."
+            },
+            "_icons": [
+                "iconset/m/天书_勾魂摄魄.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17594",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17595",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17597",
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17602": {
+            "_id": 17602,
+            "name": "Буддистські почуття",
+            "level": 4,
+            "_color": {
+                "color_id": 3
+            },
+            "_description": {
+                "description": "^ffcb4aІнтелект +13 \nТіло +12 \n^00ffffСпалює кохання в полум'ї, очищає пристрасть вогнем.",
+                "plain_text": "Інтелект +13 \nТіло +12 \nСпалює кохання в полум'ї, очищає пристрасть вогнем."
+            },
+            "_icons": [
+                "iconset/m/天书_焚情.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17595",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17596",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17599",
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17603": {
+            "_id": 17603,
+            "name": "Фаталізм",
+            "level": 4,
+            "_color": {
+                "color_id": 3
+            },
+            "_description": {
+                "description": "^ffcb4aСила +20 \n^00ffffДоля у ваших руках.",
+                "plain_text": "Сила +20 \nДоля у ваших руках."
+            },
+            "_icons": [
+                "iconset/m/天书_宿命.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17593",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17596",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17597",
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17604": {
+            "_id": 17604,
+            "name": "Шипи троянд",
+            "level": 4,
+            "_color": {
+                "color_id": 3
+            },
+            "_description": {
+                "description": "^ffcb4aСпритність +20 \n^00ffffКраса - отрута.",
+                "plain_text": "Спритність +20 \nКраса - отрута."
+            },
+            "_icons": [
+                "iconset/m/天书_玫瑰刺.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17594",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17595",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17597",
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17605": {
+            "_id": 17605,
+            "name": "Заворушення",
+            "level": 4,
+            "_color": {
+                "color_id": 3
+            },
+            "_description": {
+                "description": "^ffcb4aТіло +20 \n^00ffffВеликі зміни несуть великі жертви.",
+                "plain_text": "Тіло +20 \nВеликі зміни несуть великі жертви."
+            },
+            "_icons": [
+                "iconset/m/天书_变乱.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17593",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17598",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17599",
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17606": {
+            "_id": 17606,
+            "name": "Весняний вітер",
+            "level": 4,
+            "_color": {
+                "color_id": 3
+            },
+            "_description": {
+                "description": "^ffcb4aІнтелект +20 \n^00ffffПриходить весна і баньян розквітає.",
+                "plain_text": "Інтелект +20 \nПриходить весна і баньян розквітає."
+            },
+            "_icons": [
+                "iconset/m/天书_如沐春风.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17595",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17598",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17599",
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17607": {
+            "_id": 17607,
+            "name": "Червона річка",
+            "level": 1,
+            "_color": {
+                "color_id": 3
+            },
+            "_description": {
+                "description": "^ffcb4aШвидкість відновлення ЖС +3\nДосвід +1% \n^00ffffВіра в плоть та кров.",
+                "plain_text": "Швидкість відновлення ЖС +3\nДосвід +1% \nВіра в плоть та кров."
+            },
+            "_icons": [
+                "iconset/m/天书_满江红.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17810",
+                            "value": 3
+                        },
+                        {
+                            "item_id": "18185",
+                            "value": 4
+                        }
+                    ]
+                },
+                {
+                    "materials": [
+                        {
+                            "item_id": 25385,
+                            "value": 100
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17608": {
+            "_id": 17608,
+            "name": "Вовк вбивця",
+            "level": 2,
+            "_color": {
+                "color_id": 3
+            },
+            "_description": {
+                "description": "^ffcb4aШвидкість відновлення ЖС +6 \nДосвід +2% \n^00ffffДозвольте минулому піти і майбутнє прийде.",
+                "plain_text": "Швидкість відновлення ЖС +6 \nДосвід +2% \nДозвольте минулому піти і майбутнє прийде."
+            },
+            "_icons": [
+                "iconset/m/天书_杀破狼.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17579",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17581",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17607",
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17609": {
+            "_id": 17609,
+            "name": "Поразка та розпад",
+            "level": 3,
+            "_color": {
+                "color_id": 3
+            },
+            "_description": {
+                "description": "^ffcb4aШвидкість відновлення ЖС +9 \nДосвід +3% \n^00ffffРуйнівник, життя і смерть - у владі року.",
+                "plain_text": "Швидкість відновлення ЖС +9 \nДосвід +3% \nРуйнівник, життя і смерть - у владі року."
+            },
+            "_icons": [
+                "iconset/m/天书_崩坏.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17587",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17589",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17608",
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17610": {
+            "_id": 17610,
+            "name": "Південь ріки Янцзи",
+            "level": 4,
+            "_color": {
+                "color_id": 3
+            },
+            "_description": {
+                "description": "^ffcb4aШвидкість відновлення ЖС +9 \nДосвід +4% \n^00ffffМандрівник на тисячі миль.",
+                "plain_text": "Швидкість відновлення ЖС +9 \nДосвід +4% \nМандрівник на тисячі миль."
+            },
+            "_icons": [
+                "iconset/m/天书_江南.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17590",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17592",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17609",
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17611": {
+            "_id": 17611,
+            "name": "Місяць вогняних ночей",
+            "level": 1,
+            "_color": {
+                "color_id": 3
+            },
+            "_description": {
+                "description": "^ffcb4aШвидкість відновлення МЕ +3 \nДосвід +1% \n^00ffffЦе час появи диявола.",
+                "plain_text": "Швидкість відновлення МЕ +3 \nДосвід +1% \nЦе час появи диявола."
+            },
+            "_icons": [
+                "iconset/m/天书_火宵之月.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17810",
+                            "value": 3
+                        },
+                        {
+                            "item_id": "18185",
+                            "value": 4
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17612": {
+            "_id": 17612,
+            "name": "Фенікс, що купається у вогні",
+            "level": 2,
+            "_color": {
+                "color_id": 3
+            },
+            "_description": {
+                "description": "^ffcb4aШвидкість відновлення МЕ +6 \nДосвід +2% \n^00ffffПтах стане феніксом, коли загине 9 разів, людина стане Буддою, коли прийде час.",
+                "plain_text": "Швидкість відновлення МЕ +6 \nДосвід +2% \nПтах стане феніксом, коли загине 9 разів, людина стане Буддою, коли прийде час."
+            },
+            "_icons": [
+                "iconset/m/天书_浴火鸾凤.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17581",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17585",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17611",
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17613": {
+            "_id": 17613,
+            "name": "Сморід",
+            "level": 3,
+            "_color": {
+                "color_id": 3
+            },
+            "_description": {
+                "description": "^ffcb4aШвидкість відновлення МЕ +9 \nДосвід +3%\n^00ffffДощ і вітер мучать квітки персика.",
+                "plain_text": "Швидкість відновлення МЕ +9 \nДосвід +3%\nДощ і вітер мучать квітки персика."
+            },
+            "_icons": [
+                "iconset/m/天书_血雨腥风.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17587",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17588",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17612",
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17614": {
+            "_id": 17614,
+            "name": "Води слабкості",
+            "level": 4,
+            "_color": {
+                "color_id": 3
+            },
+            "_description": {
+                "description": "^ffcb4aШвидкість відновлення МЕ +12 \nДосвід +4% \n^00ffffВода на 3000 миль та сліди під нею.",
+                "plain_text": "Швидкість відновлення МЕ +12 \nДосвід +4% \nВода на 3000 миль та сліди під нею."
+            },
+            "_icons": [
+                "iconset/m/天书_弱水三千.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17594",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17598",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17613",
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17615": {
+            "_id": 17615,
+            "name": "Холодний іноземець",
+            "level": 6,
+            "_color": {
+                "color_id": 2
+            },
+            "_description": {
+                "description": "^ffcb4aІнтелект +35\n^00ffff Водяний дракон приходить із айсберга.",
+                "plain_text": "Інтелект +35\n Водяний дракон приходить із айсберга."
+            },
+            "_icons": [
+                "iconset/m/天书_冰夷.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17618",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17621",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17651",
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17618": {
+            "_id": 17618,
+            "name": "Розум подібний до струмка",
+            "level": 5,
+            "_color": {
+                "color_id": 2
+            },
+            "_description": {
+                "description": "^ffcb4aІнтелект +20 \nШанс критичного удару +1% \n^00ffffНерухливий як гора.",
+                "plain_text": "Інтелект +20 \nШанс критичного удару +1% \nНерухливий як гора."
+            },
+            "_icons": [
+                "iconset/m/天书_心如止水（定）.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17600",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17602",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17606",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "materials": [
+                        {
+                            "item_id": 27502,
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17621": {
+            "_id": 17621,
+            "name": "Цунамі",
+            "level": 5,
+            "_color": {
+                "color_id": 2
+            },
+            "_description": {
+                "description": "^ffcb4aІнтелект +20 \nЗбільшення швидкості пересування на 0.1м/сек. \n^00ffffХвиля приходить і йде - її рух нескінченний.",
+                "plain_text": "Інтелект +20 \nЗбільшення швидкості пересування на 0.1м/сек. \nХвиля приходить і йде - її рух нескінченний."
+            },
+            "_icons": [
+                "iconset/m/天书_海啸.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17601",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17604",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17606",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "materials": [
+                        {
+                            "item_id": 27502,
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17622": {
+            "_id": 17622,
+            "name": "Темна північ",
+            "level": 6,
+            "_color": {
+                "color_id": 2
+            },
+            "_description": {
+                "description": "^ffcb4aІнтелект +20 \nЗбільшення швидкості пересування на 0.2м/сек. \n^00ffffЯ Будда.",
+                "plain_text": "Інтелект +20 \nЗбільшення швидкості пересування на 0.2м/сек. \nЯ Будда."
+            },
+            "_icons": [
+                "iconset/m/天书_北冥.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17621",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17624",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17633",
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17624": {
+            "_id": 17624,
+            "name": "Істерія",
+            "level": 5,
+            "_color": {
+                "color_id": 2
+            },
+            "_description": {
+                "description": "^ffcb4aТіло +25 \n^00ffffЛюди вважають мене божевільним, але вони не знають, про що я думаю.",
+                "plain_text": "Тіло +25 \nЛюди вважають мене божевільним, але вони не знають, про що я думаю."
+            },
+            "_icons": [
+                "iconset/m/天书_笑疯癫.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17600",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17602",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17605",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "materials": [
+                        {
+                            "item_id": 27502,
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+		  "17627": {
+    "_id": 17627,
+    "name": "Вітання землі",
+    "level": 5,
+    "_color": {
+      "color_id": 2
+    },
+    "_description": {
+      "description": "^ffcb4aТіло +20 \nІмунітет до фізичної шкоди +3% \n^00ffffСтарійшина прийшов привітати тебе з Днем народження.",
+      "plain_text": "Тіло +20 \nІмунітет до фізичної шкоди +3% \nСтарійшина прийшов привітати тебе з Днем народження."
+    },
+    "_icons": [
+      "iconset/m/天书_土地拜寿.webp"
+    ],
+    "_recipes": [
+      {
+        "materials": [
+          {
+            "item_id": 17600,
+            "value": 1
+          },
+          {
+            "item_id": 17605,
+            "value": 1
+          },
+          {
+            "item_id": 17602,
+            "value": 1
+          }
+        ]
+      },
+      {
+        "materials": [
+          {
+            "item_id": 27502,
+            "value": 1
+          }
+        ]
+      }
+    ],
+    "visible": true
+  },
+		  "17628": {
+    "_id": 17628,
+    "name": "Яскраві сльози",
+    "level": 6,
+    "_color": {
+      "color_id": 2
+    },
+    "_description": {
+      "description": "^ffcb4aТіло +20\n Імунітет до фізичної шкоди +6% \n^00ffffПрийшов червоний дощ і квіти опали.",
+      "plain_text": "Тіло +20\n Імунітет до фізичної шкоди +6% \nПрийшов червоний дощ і квіти опали."
+    },
+    "_icons": [
+      "iconset/m/天书_胭脂红泪.webp"
+    ],
+    "_recipes": [
+      {
+        "materials": [
+          {
+            "item_id": 17627,
+            "value": 1
+          },
+          {
+            "item_id": 17624,
+            "value": 1
+          },
+          {
+            "item_id": 17648,
+            "value": 1
+          }
+        ]
+      }
+    ],
+    "visible": true
+  },
+        "17630": {
+            "_id": 17630,
+            "name": "Вода камінь точить",
+            "level": 6,
+            "_color": {
+                "color_id": 2
+            },
+            "_description": {
+                "description": "^ffcb4aТіло +20 \nШанс критичного удару +2% \n^00ffffУ житті важлива віра.",
+                "plain_text": "Тіло +20 \nШанс критичного удару +2% \nУ житті важлива віра."
+            },
+            "_icons": [
+                "iconset/m/天书_水滴石穿.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17618",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17624",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17648",
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17633": {
+            "_id": 17633,
+            "name": "Всесвітні руйнування",
+            "level": 5,
+            "_color": {
+                "color_id": 2
+            },
+            "_description": {
+                "description": "^ffcb4aСпритність +25 \n^00ffffКоли світ проклятий, людина збиратиме всесвіт по порошинках.",
+                "plain_text": "Спритність +25 \nКоли світ проклятий, людина збиратиме всесвіт по порошинках."
+            },
+            "_icons": [
+                "iconset/m/天书_天残地缺.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17601",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17604",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17605",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "materials": [
+                        {
+                            "item_id": 27502,
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17634": {
+            "_id": 17634,
+            "name": "Фенікс летить до світанку",
+            "level": 6,
+            "_color": {
+                "color_id": 2
+            },
+            "_description": {
+                "description": "^ffcb4aСпритність +35 \n^00ffffНаступ фенікса.",
+                "plain_text": "Спритність +35 \nНаступ фенікса."
+            },
+            "_icons": [
+                "iconset/m/天书_凤来朝.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17633",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17651",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17666",
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17636": {
+            "_id": 17636,
+            "name": "Зростаючий у річці очерет",
+            "level": 6,
+            "_color": {
+                "color_id": 2
+            },
+            "_description": {
+                "description": "^ffcb4aСпритність +20 \nЗбільшення швидкості пересування на 0.2м/сек. \n^00ffff Гнів річки та моря.",
+                "plain_text": "Спритність +20 \nЗбільшення швидкості пересування на 0.2м/сек. \n Гнів річки та моря."
+            },
+            "_icons": [
+                "iconset/m/天书_一苇渡江.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17633",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17639",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17645",
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17639": {
+            "_id": 17639,
+            "name": "Дивна доброта",
+            "level": 5,
+            "_color": {
+                "color_id": 2
+            },
+            "_description": {
+                "description": "^ffcb4aСпритність +20 \nШанс критичного удару +1% \n^00ffffДяка Богу, всі гріхи відпущені.",
+                "plain_text": "Спритність +20 \nШанс критичного удару +1% \nДяка Богу, всі гріхи відпущені."
+            },
+            "_icons": [
+                "iconset/m/天书_奇异恩典.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17601",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17603",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17604",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "materials": [
+                        {
+                            "item_id": 27502,
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17642": {
+            "_id": 17642,
+            "name": "Тягне люті хвилі",
+            "level": 6,
+            "_color": {
+                "color_id": 2
+            },
+            "_description": {
+                "description": "^ffcb4aСила +35\n^00ffffОстанній шанс від долі.",
+                "plain_text": "Сила +35\nОстанній шанс від долі."
+            },
+            "_icons": [
+                "iconset/m/天书_力挽狂澜.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17645",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17672",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17675",
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17645": {
+            "_id": 17645,
+            "name": "Красива змія",
+            "level": 5,
+            "_color": {
+                "color_id": 2
+            },
+            "_description": {
+                "description": "^ffcb4aСила +20\n Збільшення швидкості пересування на 0.1м/сек. \n^00ffffПодбай про своє життя.",
+                "plain_text": "Сила +20\n Збільшення швидкості пересування на 0.1м/сек. \nПодбай про своє життя."
+            },
+            "_icons": [
+                "iconset/m/天书_美女蛇.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17601",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17603",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17605",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "materials": [
+                        {
+                            "item_id": 27502,
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17648": {
+            "_id": 17648,
+            "name": "Чотири порожнечі",
+            "level": 5,
+            "_color": {
+                "color_id": 2
+            },
+            "_description": {
+                "description": "^ffcb4aСила +20 \nШанс критичного удару +1% \n^00ffffВсе зрозуміло, коли розум чистий.",
+                "plain_text": "Сила +20 \nШанс критичного удару +1% \nВсе зрозуміло, коли розум чистий."
+            },
+            "_icons": [
+                "iconset/m/天书_四大皆空.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17600",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17603",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17605",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "materials": [
+                        {
+                            "item_id": 27502,
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17649": {
+            "_id": 17649,
+            "name": "Вогонь ненависті ранить серце",
+            "level": 6,
+            "_color": {
+                "color_id": 2
+            },
+            "_description": {
+                "description": "^ffcb4aСила +20 \nШанс критичного удару +2% \n^00ffffНеймовірна сила.",
+                "plain_text": "Сила +20 \nШанс критичного удару +2% \nНеймовірна сила."
+            },
+            "_icons": [
+                "iconset/m/天书_怒火攻心.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17639",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17648",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17675",
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17651": {
+            "_id": 17651,
+            "name": "Солодкий оазис пустель",
+            "level": 5,
+            "_color": {
+                "color_id": 2
+            },
+            "_description": {
+                "description": "^ffcb4aІнтелект +13 \nТіло +12 \nЗбільшення швидкості пересування на 0.1м/сек. \n^00ffffПісня зелених пагорбів.",
+                "plain_text": "Інтелект +13 \nТіло +12 \nЗбільшення швидкості пересування на 0.1м/сек. \nПісня зелених пагорбів."
+            },
+            "_icons": [
+                "iconset/m/天书_荒漠甘泉.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17602",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17604",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17606",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "materials": [
+                        {
+                            "item_id": 27502,
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17654": {
+            "_id": 17654,
+            "name": "Принади небес",
+            "level": 5,
+            "_color": {
+                "color_id": 2
+            },
+            "_description": {
+                "description": "^ffcb4aІнтелект +13 \nТіло +12 \nЧас активації -1%\n^00ffffСлова пісні рознесуться далеко.",
+                "plain_text": "Інтелект +13 \nТіло +12 \nЧас активації -1%\nСлова пісні рознесуться далеко."
+            },
+            "_icons": [
+                "iconset/m/天书_天香.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17602",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17606",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17614",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "materials": [
+                        {
+                            "item_id": 27502,
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17655": {
+            "_id": 17655,
+            "name": "Хвала закону",
+            "level": 6,
+            "_color": {
+                "color_id": 2
+            },
+            "_description": {
+                "description": "^ffcb4aІнтелект +13 \nТіло +12 \nЧас активації -2% \n^00ffffЗвуки пісні пройдуть крізь тисячі років.",
+                "plain_text": "Інтелект +13 \nТіло +12 \nЧас активації -2% \nЗвуки пісні пройдуть крізь тисячі років."
+            },
+            "_icons": [
+                "iconset/m/天书_波律香颂.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17618",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17633",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17654",
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17657": {
+            "_id": 17657,
+            "name": "Суцвіття",
+            "level": 6,
+            "_color": {
+                "color_id": 2
+            },
+            "_description": {
+                "description": "^ffcb4aІнтелект +13 \nТіло +12\nШанс критичного удару +2% \n^00ffffХолод у серці, але тепло на шкірі.",
+                "plain_text": "Інтелект +13 \nТіло +12\nШанс критичного удару +2% \nХолод у серці, але тепло на шкірі."
+            },
+            "_icons": [
+                "iconset/m/天书_弹球手.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17618",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17639",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17654",
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17660": {
+            "_id": 17660,
+            "name": "Купідон",
+            "level": 5,
+            "_color": {
+                "color_id": 2
+            },
+            "_description": {
+                "description": "^ffcb4aСпритність +13 \nТіло +12 \nЗбільшення швидкості пересування на 0.1м/сек. \n^00ffffПодяка бога.",
+                "plain_text": "Спритність +13 \nТіло +12 \nЗбільшення швидкості пересування на 0.1м/сек. \nПодяка бога."
+            },
+            "_icons": [
+                "iconset/m/天书_丘比特.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17601",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17604",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17605",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "materials": [
+                        {
+                            "item_id": 27502,
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17661": {
+            "_id": 17661,
+            "name": "Пара крил",
+            "level": 6,
+            "_color": {
+                "color_id": 2
+            },
+            "_description": {
+                "description": "^ffcb4aСпритність +13 \nТіло +12 \nЗбільшення швидкості пересування на 0.2м/сек. \n^00ffffКрила віри переслідують місяць.",
+                "plain_text": "Спритність +13 \nТіло +12 \nЗбільшення швидкості пересування на 0.2м/сек. \nКрила віри переслідують місяць."
+            },
+            "_icons": [
+                "iconset/m/天书_双飞翼.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17633",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17651",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17660",
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17663": {
+            "_id": 17663,
+            "name": "Медитація в положенні сидячи",
+            "level": 6,
+            "_color": {
+                "color_id": 2
+            },
+            "_description": {
+                "description": "^ffcb4aСпритність +13 \nТіло +12 \nЖС+140\n^00ffffТри дні медитації кинули світ у забуття.",
+                "plain_text": "Спритність +13 \nТіло +12 \nЖС+140\nТри дні медитації кинули світ у забуття."
+            },
+            "_icons": [
+                "iconset/m/天书_坐忘禅.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17624",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17660",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17672",
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17666": {
+            "_id": 17666,
+            "name": "Гігантські хвилі",
+            "level": 5,
+            "_color": {
+                "color_id": 2
+            },
+            "_description": {
+                "description": "^ffcb4aСпритність +13\nТіло +12\nШанс критичного удару +1% \n^00ffffЛегкі кроки порушують тишу над озером.",
+                "plain_text": "Спритність +13\nТіло +12\nШанс критичного удару +1% \nЛегкі кроки порушують тишу над озером."
+            },
+            "_icons": [
+                "iconset/m/天书_波浩淼.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17601",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17604",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17605",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "materials": [
+                        {
+                            "item_id": 27502,
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17669": {
+            "_id": 17669,
+            "name": "Вселенська лють",
+            "level": 6,
+            "_color": {
+                "color_id": 2
+            },
+            "_description": {
+                "description": "^ffcb4aСила +13\nТіло +12\nЗменшення фізичної шкоди +6% \n^00ffffКлинок змінює світ, меч – небеса.",
+                "plain_text": "Сила +13\nТіло +12\nЗменшення фізичної шкоди +6% \nКлинок змінює світ, меч – небеса."
+            },
+            "_icons": [
+                "iconset/m/天书_天地变色.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17645",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17672",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17675",
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17672": {
+            "_id": 17672,
+            "name": "Лють небес",
+            "level": 5,
+            "_color": {
+                "color_id": 2
+            },
+            "_description": {
+                "description": "^ffcb4aСила +13 \nТіло +12 \nЖС +70\n^00ffffОчі безтурботної дитини пам'ятають як лезо розсікло душу.",
+                "plain_text": "Сила +13 \nТіло +12 \nЖС +70\nОчі безтурботної дитини пам'ятають як лезо розсікло душу."
+            },
+            "_icons": [
+                "iconset/m/天书_离恨天.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17600",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17603",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17605",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "materials": [
+                        {
+                            "item_id": 27502,
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17675": {
+            "_id": 17675,
+            "name": "Дотик малинових губ",
+            "level": 5,
+            "_color": {
+                "color_id": 2
+            },
+            "_description": {
+                "description": "^ffcb4aСила +13 \nТіло +12 \nШанс критичного удару +1% \n^00ffffВипий кров ворога, змочи губи вбивці.",
+                "plain_text": "Сила +13 \nТіло +12 \nШанс критичного удару +1% \nВипий кров ворога, змочи губи вбивці."
+            },
+            "_icons": [
+                "iconset/m/天书_点绛唇.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17600",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17603",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17605",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "materials": [
+                        {
+                            "item_id": 27502,
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17676": {
+            "_id": 17676,
+            "name": "Сміх імператорської наложниці",
+            "level": 6,
+            "_color": {
+                "color_id": 2
+            },
+            "_description": {
+                "description": "^ffcb4aСила +13 \nТіло +12 \nШанс критичного удару +2% \n^00ffffІмперська наложниця не має власних думок, лише усмішка привертає увагу.",
+                "plain_text": "Сила +13 \nТіло +12 \nШанс критичного удару +2% \nІмперська наложниця не має власних думок, лише усмішка привертає увагу."
+            },
+            "_icons": [
+                "iconset/m/天书_妃子笑.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17666",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17672",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17675",
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17678": {
+            "_id": 17678,
+            "name": "Тринадцять хуліганів",
+            "level": 5,
+            "_color": {
+                "color_id": 2
+            },
+            "_description": {
+                "description": "^ffcb4aСила +9 \nСпритність +9\nТіло +8\nІнтелект +9\nЖС +70\n^00ffffЖиття розбійника скоро закінчиться, про це дізнаються всі.",
+                "plain_text": "Сила +9 \nСпритність +9\nТіло +8\nІнтелект +9\nЖС +70\nЖиття розбійника скоро закінчиться, про це дізнаються всі."
+            },
+            "_icons": [
+                "iconset/m/天书_十三太保.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17602",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17610",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17614",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "materials": [
+                        {
+                            "item_id": 27502,
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17679": {
+            "_id": 17679,
+            "name": "Вісімнадцять учнів",
+            "level": 6,
+            "_color": {
+                "color_id": 2
+            },
+            "_description": {
+                "description": "^ffcb4aСила +9 \nСпритність +9\nТіло +8\nІнтелект +9\nЖС +70\nМЕ +80\n^00ffffЧервона камелія з'явилася у снігу, школярі зібралися подивитись.",
+                "plain_text": "Сила +9 \nСпритність +9\nТіло +8\nІнтелект +9\nЖС +70\nМЕ +80\nЧервона камелія з'явилася у снігу, школярі зібралися подивитись."
+            },
+            "_icons": [
+                "iconset/m/天书_十八学士.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17618",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17645",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17678",
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17682": {
+            "_id": 17682,
+            "name": "Порожнє дзеркало",
+            "level": 5,
+            "_color": {
+                "color_id": 2
+            },
+            "_description": {
+                "description": "^ffcb4aСила +9 \nСпритність +9\nТіло +8\nІнтелект +9\nШанс критичного удару +1% \n^00ffffТемрява, порожнеча. Кордон між нічим і чимось.",
+                "plain_text": "Сила +9 \nСпритність +9\nТіло +8\nІнтелект +9\nШанс критичного удару +1% \nТемрява, порожнеча. Кордон між нічим і чимось."
+            },
+            "_icons": [
+                "iconset/m/天书_空境.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17602",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17610",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17614",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "materials": [
+                        {
+                            "item_id": 27502,
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17683": {
+            "_id": 17683,
+            "name": "Бог Пань Гу",
+            "level": 6,
+            "_color": {
+                "color_id": 2
+            },
+            "_description": {
+                "description": "^ffcb4aСила +9 \nСпритність +9\nТіло +8\nІнтелект +9\nШанс критичного удару +1%\nЧас активації -1%\nЗатримка атаки -0.05сек. \n^00ffffКоли всередині дитини хаос, всесвіт - лише інструмент.",
+                "plain_text": "Сила +9 \nСпритність +9\nТіло +8\nІнтелект +9\nШанс критичного удару +1%\nЧас активації -1%\nЗатримка атаки -0.05сек. \nКоли всередині дитини хаос, всесвіт - лише інструмент."
+            },
+            "_icons": [
+                "iconset/m/天书_盘古.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": "17675",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17678",
+                            "value": 1
+                        },
+                        {
+                            "item_id": "17682",
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "17810": {
+            "_id": 17810,
+            "name": "Уривки небесного трактату",
+            "level": 0,
+            "_color": {
+                "color_id": 1
+            },
+            "_description": {
+                "description": "^00ffffОсновний матеріал для створення Небесної книги.",
+                "plain_text": "Основний матеріал для створення Небесної книги."
+            },
+            "_icons": [
+                "iconset/m/灵魂图腾.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": 34449,
+                            "value": 1
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "18185": {
+            "_id": 18185,
+            "name": "Небесна сторінка",
+            "level": 0,
+            "_color": null,
+            "_description": {
+                "description": "^ffcb4aМатеріал для створення небесної книги.",
+                "plain_text": "Матеріал для створення небесної книги."
+            },
+            "_icons": [
+                "iconset/m/天书_无字天书.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": 24721,
+                            "value": 20
+                        }
+                    ]
+                }
+            ],
+            "visible": true
+        },
+        "27502": {
+            "_id": 27502,
+            "name": "Книга долі",
+            "level": 0,
+            "_color": {
+                "color_id": 2
+            },
+            "_description": {
+                "description": "^ffcb4aКнига долі\n^808080Можна створити Священну книгу 5 рів. у Великій печі у Місті 10000 потоків\n^00ffffДля створення потрібно перемістити книгу у відповідне місце у печі",
+                "plain_text": "Книга долі\nМожна створити Священну книгу 5 рів. у Великій печі у Місті 10000 потоків\nДля створення потрібно перемістити книгу у відповідне місце у печі"
+            },
+            "_icons": [
+                "iconset/m/天命之书.webp"
+            ],
+            "_recipes": [
+                {
+                    "materials": [
+                        {
+                            "item_id": 48175,
+                            "value": 5000
+                        }
+                    ]
+                }
+            ],
+            "visible": true
         }
+    
+
       }
     }
