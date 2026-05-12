@@ -34,8 +34,10 @@
 
     .content a {
       text-decoration: none;
-      color: white; /* або будь-який колір, який тобі потрібен */
+      color: white;
+      /* або будь-який колір, який тобі потрібен */
     }
+
     /* ── Header ───────────────────────────────────── */
     .site-header {
       background: #000;
@@ -254,7 +256,8 @@
     }
 
     [data-tooltip]::after {
-      bottom: -54px;
+      bottom: auto;
+      top: calc(100% + 30px);
       content: attr(data-tooltip);
       padding: 8px;
       border-radius: 8px;
@@ -264,10 +267,32 @@
     }
 
     [data-tooltip]::before {
-      bottom: -10px;
+      bottom: auto;
+      top: calc(100%);
       content: '';
       border: 10px solid transparent;
       border-bottom: 10px solid gray;
+    }
+
+    #editor {
+      background: #222;
+      color: #eee;
+      padding: 15px;
+      border-radius: 8px;
+      max-width: 400px;
+    }
+
+    #editor input,
+    #editor textarea {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    #craftList {
+      max-height: 150px;
+      overflow-y: auto;
+      border: 1px solid #444;
+      padding: 5px;
     }
   </style>
 </head>
@@ -278,7 +303,7 @@
     <header class="site-header">
       <div class="header-content">
         <div class="logo">
-          <img src="images/logo.png" alt="ЧорнаРада" title="ЧорнаРада" style="width:230px;height:90px;">
+          <img src="iconset/m\logo.webp" alt="ЧорнаРада" title="ЧорнаРада" style="width:230px;height:90px;">
           <h1>Калькулятор трактатів</h1>
         </div>
 
@@ -310,53 +335,123 @@
     </footer>
 
   </div>
+
+
+
 </body>
 
 <script>
   const resultsDiv = document.getElementById('searchResults');
   let isResultsHidden = false;
-  var data={};
+  var data = { tractates:{}
+
+};
+
+  let currentTractateId = null;
+
+  function getMaterials(t) {
+    if (!t) return [];
+    if (t.craft) return t.craft.map(id => ({ item_id: id, value: 1 }));
+    if (t._recipes && t._recipes[0] && t._recipes[0].materials) {
+		
+      return t._recipes[0].materials;
+    }
+    return [];
+  }
+
+  function renderCraftList(query = "") {
+    const listDiv = document.getElementById("craftList");
+    if (!listDiv) return;
+    listDiv.innerHTML = "";
+
+    const tractate = currentTractateId ? data.tractates[currentTractateId] : null;
+    const materials = getMaterials(tractate);
+
+    Object.entries(data.tractates)
+      .filter(([cid, c]) => c.name.toLowerCase().includes(query.toLowerCase()))
+      .forEach(([cid, c]) => {
+        const mat = materials.find(m => String(m.item_id) === cid);
+        const count = mat ? mat.value : 0;
+        const checked = count > 0 ? "checked" : "";
+        const item = document.createElement("div");
+        item.innerHTML = `
+          <label>
+            <input type="checkbox" value="${cid}" ${checked}>
+            ${c.name}
+            <input type="number" min="1" value="${count || 1}" style="width:100px; height:20px;" ${count > 0 ? "" : "disabled"}>
+          </label>      
+        `;
+        const checkbox = item.querySelector("input[type=checkbox]");
+        const numberInput = item.querySelector("input[type=number]");
+        if (checkbox && numberInput) {
+          checkbox.addEventListener("change", () => {
+            numberInput.disabled = !checkbox.checked;
+            if (!checkbox.checked) numberInput.value = 1;
+          });
+        }
+        listDiv.appendChild(item);
+      });
+  }
 
   async function loadData() {
+    try {
     const response = await fetch('data.json');
     data = await response.json();
-    
-    // Відкрити трактат з URL при завантаженні сторінки
-    const id = new URLSearchParams(window.location.search).get('id');
-    if (id && data.tractates[id]) showPyramid(id);
+    } catch (e) {
+      console.error("Failed to load data.json:", e);
+      data = { tractates: {} };
+    }
+
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+    const isAddMode = window.location.pathname.endsWith('/add') || params.get('mode') == 'add';
+
+    if (isAddMode) {
+      enterAddMode();
+    } else if (id && data.tractates[id]) {
+      showPyramid(id);
+    }
   }
 
   function countAll(id) {
     const t = data.tractates[id];
-    if (!t || !t.craft || t.craft.length === 0) {
+    if (!t) return { fragments: 0, pages: 0 };
+    const materials = getMaterials(t);
+    if (materials.length === 0) {
       return { fragments: 0, pages: 0 };
     }
 
     const result = { fragments: 0, pages: 0 };
 
-    t.craft.forEach(childId => {
-      if (childId === 'fragment') {
-        result.fragments += 1;
-      } else if (childId === 'page') {
-        result.pages += 1;
+    materials.forEach(mat => {
+      const childId = mat.item_id;
+      const count = mat.value || 1;
+      if (childId === '17810') {
+        result.fragments += count;
+      } else if (childId === '18185') {
+        result.pages += count;
       } else if (data.tractates[childId]) {
         const childRes = countAll(childId);
-        result.fragments += childRes.fragments;
-        result.pages += childRes.pages;
+        result.fragments += childRes.fragments * count;
+        result.pages += childRes.pages * count;
       }
     });
 
     return result;
   }
 
-  function collectCounts(id, counts = {}) {
+  function collectCounts(id, counts = {}, multiplier = 1) {
     const t = data.tractates[id];
-    if (!t || !t.craft || t.craft.length === 0) return counts;
+    if (!t) return counts;
+    const materials = getMaterials(t);
+    if (materials.length === 0) return counts;
 
-    t.craft.forEach(childId => {
-      if (childId === 'fragment' || childId === 'page') return;
-      counts[childId] = (counts[childId] || 0) + 1;
-      collectCounts(childId, counts);
+    materials.forEach(mat => {
+      const childId = mat.item_id;
+      const count = (mat.value || 1) * multiplier;
+      if (childId === '17810' || childId === '18185') return;
+      counts[childId] = (counts[childId] || 0) + count;
+      collectCounts(childId, counts, count);
     });
 
     return counts;
@@ -364,54 +459,56 @@
 
   function showPyramid(id, skipPush = false) {
     if (!skipPush) {
-    history.pushState({ id }, "", "?id=" + id);
-  }
-        // Оновити URL без перезавантаження сторінки
-    //const url = new URL(window.location);
-    //url.searchParams.set('id', id);
-    //history.pushState({ id }, '', url);
+      history.pushState({ id }, "", "?id=" + id);
+    }
 
-     //history.pushState({ id }, "", "?id=" + id);
+    const tractate = data.tractates[id];
+    if (!tractate) return;
 
     const counts = collectCounts(id);
     const total = countAll(id);
-    const tractate = data.tractates[id];
+    currentTractateId = id;
 
+    const materials = getMaterials(tractate);
+    const desc = tractate._description?.plain_text || tractate.description || "";
+
+    renderCraftList();
+
+    const icon = tractate._icons?.[0] || `images/${id}.png`;
     document.getElementById('summary').innerHTML = `
-      <span data-tooltip="${tractate.name}\n ${tractate.description}">
-        <img class="tooltip-img" src="images/${id}.png" alt="${tractate.name}"
+      <p data-tooltip="${tractate.name}\n ${desc}">
+        <img class="tooltip-img" src="${icon}" alt="${tractate.name}"
              style="width:38px;height:38px;display:block;">
-      </span>
+      </p>
       <h3 style="color:purple;margin:0;">${tractate.name}</h3>`;
 
     const pyramid = document.getElementById('pyramid');
     pyramid.innerHTML = '';
 
-    // Group tractates by level
     const levels = {};
     Object.entries(counts).forEach(([tractateId, count]) => {
       const t = data.tractates[tractateId];
       if (!t) return;
       const lvl = t.level || 0;
       if (!levels[lvl]) levels[lvl] = [];
-      levels[lvl].push({ id: tractateId, name: t.name, count });
+      levels[lvl].push({ id: tractateId, name: t.name, count, description: t._description?.plain_text || t.description || "" });
     });
 
-    // Render pyramid rows (highest level first)
     Object.keys(levels).sort((a, b) => b - a).forEach(lvl => {
       const row = document.createElement('div');
       row.className = 'level';
       row.style.cssText = 'display:flex;justify-content:center;gap:10px;';
 
       levels[lvl].forEach(t => {
-        const desc = t.description || '';
+        const tIcon = data.tractates[t.id]?._icons?.[0] || `images/${t.id}.png`;
         const block = document.createElement('div');
         block.className = 'tractate';
         block.innerHTML = `
-          <p data-tooltip="${t.name} x ${t.count}\n ${desc}">
-            <img class="tooltip-img" src="images/${t.id}.png"
-                 alt="${t.name} x ${t.count}" style="width:38px;height:38px;"><br>${t.count}
-          </p>`;
+          <p data-tooltip="${t.name} x ${t.count}\n ${t.description}">
+            <img class="tooltip-img" src="${tIcon}"
+                 alt="${t.name} x ${t.count}" style="width:38px;height:38px;">
+          </p>
+		  ${t.count}`;
         block.onclick = () => showPyramid(t.id, false);
         row.appendChild(block);
       });
@@ -419,7 +516,6 @@
       pyramid.appendChild(row);
     });
 
-    // Render base resources row (fragments & pages)
     const totalRow = document.createElement('div');
     totalRow.className = 'level';
     totalRow.style.cssText = 'display:flex;justify-content:center;gap:10px;';
@@ -429,7 +525,7 @@
         fragment.className = 'tractate';
         fragment.innerHTML = `
         <p data-tooltip="Уривок небесної сторінки x ${total.fragments}">
-        <img src="images/fragment.png" style="width:38px;height:38px;"><br>${total.fragments}
+        <img src="iconset/m/灵魂图腾.webp" style="width:38px;height:38px;"><br>${total.fragments}
         </p>`;
         totalRow.appendChild(fragment);
       }
@@ -438,12 +534,10 @@
         page.className = 'tractate';
         page.innerHTML = `
         <p data-tooltip="Небесна сторінка x ${total.pages}">
-        <img src="images/page.png" style="width:38px;height:38px;"><br>${total.pages}
+        <img src="iconset/m/天书_无字天书.webp" style="width:38px;height:38px;"><br>${total.pages}
         </p>`;
         totalRow.appendChild(page);
       }
-
-
     }
     pyramid.appendChild(totalRow);
   }
@@ -454,11 +548,12 @@
 
     Object.entries(data.tractates).forEach(([id, tractate]) => {
       const nameMatch = tractate.name.toLowerCase().includes(query);
-      const descMatch = tractate.description && tractate.description.toLowerCase().includes(query);
+      const desc = tractate._description?.description || tractate.description || "";
+      const descMatch = desc.toLowerCase().includes(query);
       const levelMatch = String(tractate.level) === query;
 
       if (nameMatch || descMatch || levelMatch) {
-        results.push({ id, name: tractate.name, level: tractate.level, description: tractate.description });
+        results.push({ id, name: tractate.name, level: tractate.level, description: desc });
       }
     });
 
@@ -487,11 +582,12 @@
 
     if (results.length > 0) {
       results.forEach(r => {
+        const rIcon = data.tractates[r.id]?._icons?.[0] || `images/${r.id}.png`;
         const item = document.createElement('div');
         item.className = 'search-item';
         item.innerHTML = `
           <div>
-            <img src="images/${r.id}.png" alt="${r.name}" title="${r.name}" style="width:38px;height:38px;">
+            <img src="${rIcon}" alt="${r.name}" title="${r.name}" style="width:38px;height:38px;">
             <b>${r.name}</b> (рівень ${r.level})
           </div>`;
         item.onclick = () => {
@@ -504,7 +600,7 @@
     } else {
       const item = document.createElement('div');
       item.className = 'search-item';
-      item.innerHTML = `<div">Нічого не знайдено</div>`;
+      item.innerHTML = `<div>Нічого не знайдено</div>`;
       resultsDiv.appendChild(item);
     }
   });
@@ -515,25 +611,42 @@
       isResultsHidden = true;
     }
   });
+
   loadData();
-    // Навігація кнопками браузера назад / вперед
+
   window.addEventListener('popstate', e => {
-     console.log("popstate fired!", e.state);
     if (e.state?.id && data?.tractates[e.state.id]) {
       showPyramid(e.state.id, true);
     }
   });
+
+  window.addEventListener("DOMContentLoaded", () => {
+    const params = new URLSearchParams(location.search);
+    let id = params.get("id");
+    if (id && data?.tractates[id]) {
+      showPyramid(id, false);
+    }
+  });
+
   
-window.addEventListener("DOMContentLoaded", () => {
-  const params = new URLSearchParams(location.search);
-let id = params.get("id");
-  console.log(id);
-  if (id && data?.tractates[id]) 
- {
-    showPyramid(id, false);
- }
-});
-  
+function formatColoredText(raw) {
+  // Розбиваємо текст на рядки
+  const lines = raw.split("\n");
+
+  return lines.map(line => {
+    // Шукаємо код кольору на початку рядка (^xxxxxx)
+    const match = line.match(/^\^([0-9a-fA-F]{6})(.*)$/);
+    if (match) {
+      const color = "#" + match[1];
+      const text = match[2].trim();
+      return `${text}\n`;
+    } else {
+      // якщо немає кольору — просто звичайний текст
+      return `${line}\n`;
+    }
+  });
+}
+
 
 </script>
 
