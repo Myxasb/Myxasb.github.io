@@ -1,485 +1,51 @@
 <!DOCTYPE html>
 <html lang="uk">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Повний шлях крафту</title>
-  <style>
-        /* ── Reset & Base ─────────────────────────────── */
-        html,
-        body {
-            height: 100%;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            color: white;
-            text-align: center;
-            min-width: 240px;
-        }
-
-        /* ── Layout ───────────────────────────────────── */
-        .page-wrapper {
-            min-height: 100%;
-            display: flex;
-            flex-direction: column;
-            background: #ffffff;
-        }
-
-        .content {
-            flex: 1;
-            background: #111;
-            padding-top: 15px;
-            min-width: 240px;
-        }
-
-        .content a {
-            text-decoration: none;
-            color: white;
-            /* або будь-який колір, який тобі потрібен */
-        }
-
-        /* ── Header ───────────────────────────────────── */
-        .site-header {
-            background: #000;
-            color: #fff;
-            padding: 15px 40px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .site-header .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .site-header .logo h1 {
-            margin: 0;
-            font-size: 1.5em;
-            color: #fff;
-        }
-
-        .nav-menu ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
-
-        .nav-menu ul li {
-            margin-left: 20px;
-        }
-
-        .nav-menu ul li a {
-            color: #bbb;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .nav-menu ul li a:hover {
-            color: #fff;
-        }
-
-        /* ── Footer ───────────────────────────────────── */
-        .site-footer {
-            background: #000;
-            color: #ddd;
-            padding: 10px 20px;
-        }
-
-        .site-footer .footer-content {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-
-        .site-footer h3 {
-            color: #fff;
-        }
-
-        .site-footer ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .site-footer ul li {
-            margin: 5px 0;
-        }
-
-        .site-footer ul li a {
-            color: #bbb;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .site-footer ul li a:hover {
-            color: #fff;
-        }
-
-        .footer-right {
-            font-size: 0.9em;
-            color: #888;
-            text-align: right;
-        }
-
-        /* ── Search ───────────────────────────────────── */
-        #searchResults {
-            display: none;
-            position: absolute;
-            top: calc(25% + 30px);
-            left: 50%;
-            transform: translateX(-50%);
-            width: 420px;
-            max-height: 300px;
-            overflow-y: auto;
-            background: #111;
-            color: #ddd;
-            border: 1px solid #333;
-            border-radius: 6px;
-            padding: 10px;
-            z-index: 999;
-        }
-
-        .search-item {
-            display: flex;
-            align-items: center;
-            padding: 8px 12px;
-            border-bottom: 1px solid #222;
-            cursor: pointer;
-        }
-
-        .search-item img {
-            margin-right: 10px;
-        }
-
-        .search-item:hover {
-            background: #222;
-        }
-
-        /* ── Tractate cards ───────────────────────────── */
-        .tractate-name {
-            display: inline-block;
-            margin: 10px;
-            padding: 10px;
-            border: 1px solid #333;
-            cursor: pointer;
-            color: gray;
-        }
-
-        /* ── Pyramid rows ─────────────────────────────── */
-        .level {
-            margin: 2px 0;
-        }
-
-        .tractate p {
-            margin: 2px 0;
-        }
-
-        .craft-path {
-            margin: 15px auto;
-            border: 1px solid #666;
-            padding: 10px;
-            width: 70%;
-            text-align: left;
-        }
-
-        ul {
-            list-style: none;
-            padding-left: 20px;
-        }
-
-        li {
-            margin: 5px 0;
-        }
-
-        /* ── Summary ──────────────────────────────────── */
-        #summary {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            padding: 12px 0;
-        }
-
-        #summary [data-tooltip] {
-            display: flex;
-            align-items: center;
-        }
-
-        #summary [data-tooltip]::after {
-            bottom: auto;
-            top: calc(100% + 30px);
-        }
-
-        #summary [data-tooltip]::before {
-            bottom: auto;
-            top: calc(100%);
-            content: '';
-            border: 10px solid transparent;
-            border-bottom: 10px solid gray;
-        }
-
-        #summary h3 {
-            margin: 0;
-        }
-
-        /* ── Tooltip ──────────────────────────────────── */
-        p [data-tooltip] img {
-            justify-content: center;
-        }
-
-        [data-tooltip] {
-            position: relative;
-            cursor: pointer;
-            width: max-content;
-        }
-
-        [data-tooltip]::after,
-        [data-tooltip]::before {
-            position: absolute;
-            left: 50%;
-            display: block;
-            opacity: 0;
-            visibility: hidden;
-            transition: 0.3s;
-            transform: translateX(-50%);
-        }
-
-        [data-tooltip]:hover::after,
-        [data-tooltip]:hover::before {
-            opacity: 1;
-            visibility: visible;
-            z-index: 99999;
-            white-space: pre-line;
-        }
-
-        [data-tooltip]::after {
-            bottom: auto;
-            top: calc(100% + 30px);
-            content: attr(data-tooltip);
-            padding: 8px;
-            border-radius: 8px;
-            background: gray;
-            text-align: center;
-            width: max-content;
-        }
-
-        [data-tooltip]::before {
-            bottom: auto;
-            top: calc(100%);
-            content: '';
-            border: 10px solid transparent;
-            border-bottom: 10px solid gray;
-        }
-
-        #editor {
-            background: #222;
-            color: #eee;
-            padding: 15px;
-            border-radius: 8px;
-            max-width: 400px;
-        }
-
-        #editor input,
-        #editor textarea {
-            width: 100%;
-            margin-bottom: 10px;
-        }
-
-        #craftList {
-            max-height: 150px;
-            overflow-y: auto;
-            border: 1px solid #444;
-            padding: 5px;
-        }
-
-        /* ── Responsive Medias ────────────────────────── */
-        @media (max-width: 768px) {
-            .site-header {
-                padding: 10px 20px;
-            }
-
-            .site-header .header-content {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .logo img {
-                width: 180px !important;
-                height: auto !important;
-            }
-
-            .logo h1 {
-                font-size: 1.2em;
-            }
-
-            #searchBox {
-                width: 90%;
-                font-size: 16px;
-                /* Prevent zooming on iOS */
-            }
-
-            #searchResults {
-                width: 90%;
-                top: calc(25%+30px);
-            }
-
-            .craft-path {
-                width: 95%;
-                padding: 8px;
-                font-size: 0.9em;
-            }
-
-            .site-footer .footer-content {
-                flex-direction: column;
-                text-align: center;
-                gap: 20px;
-            }
-
-            .footer-right {
-                text-align: center;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .logo img {
-                width: 150px !important;
-            }
-
-            .logo h1 {
-                font-size: 1em;
-            }
-
-            .tractate-name {
-                margin: 5px;
-                padding: 8px;
-                font-size: 0.8em;
-            }
-
-            #summary h3 {
-                font-size: 1.1em;
-            }
-        }
-
-        /* ── Aesthetics Polish ────────────────────────── */
-        body {
-            background-color: var(--bg-color, #111);
-            scroll-behavior: smooth;
-        }
-
-        .site-header {
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-        }
-
-        #searchBox {
-            background: #222;
-            border: 1px solid #444;
-            color: white;
-            padding: 12px 20px;
-            border-radius: 25px;
-            transition: border-color 0.3s, box-shadow 0.3s;
-            outline: none;
-            margin-top: 10px;
-        }
-
-        #searchBox:focus {
-            border-color: #ffcb4a;
-            box-shadow: 0 0 8px rgba(255, 203, 74, 0.4);
-        }
-
-        .tractate-name {
-            border-radius: 6px;
-            background: #1a1a1a;
-            transition: all 0.2s;
-        }
-
-        .tractate-name:hover {
-            background: #252525;
-            color: #fff;
-            border-color: #ffcb4a;
-            transform: translateY(-2px);
-        }
-
-        .craft-path {
-            background: #161616;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        #pyramid {
-
-            padding-bottom: 20px;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        /* Scrollbar styling */
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #111;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #333;
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #444;
-        }
-    </style>
+  <meta name="description" content="Інтерактивний калькулятор трактатів для гри. Розрахунок матеріалів, піраміда крафту та пошук.">
+  <title>Калькулятор Трактатів | Craft Pyramid Project</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
   <div class="page-wrapper">
-
     <header class="site-header">
       <div class="header-content">
         <div class="logo">
-          <img src="iconset/m\logo.webp" alt="ЧорнаРада" title="ЧорнаРада" style="width:230px;height:90px;">
+          <img src="iconset/m/logo.webp" alt="Логотип ЧорнаРада" title="ЧорнаРада" style="width:200px; height:auto; filter: drop-shadow(0 0 10px var(--accent-glow));">
           <h1>Калькулятор трактатів</h1>
         </div>
-
       </div>
     </header>
 
     <main class="content">
-      <input type="text" id="searchBox" placeholder="Пошук...">
-      <div id="searchResults"></div>
-      <div id="tractateList"></div>
+      <div class="search-container">
+        <input type="text" id="searchBox" placeholder="Шукати трактат за назвою або рівнем..." aria-label="Пошук трактатів">
+        <div id="searchResults" role="listbox"></div>
+      </div>
+      
       <div id="summary"></div>
-      <div id="pyramid"></div>
+      <div id="pyramid">
+        <!-- Піраміда крафту буде згенерована динамічно -->
+      </div>
     </main>
 
     <footer class="site-footer">
       <div class="footer-content">
         <div class="footer-left">
           <h3>Craft Pyramid Project</h3>
-          <p>Інтерактивна таблиця крафту трактатів</p>
-        </div>
-        <div class="footer-center">
-          <ul></ul>
+          <p>Найповніша база знань для майстрів небесних трактатів.</p>
         </div>
         <div class="footer-right">
-          <p>Powered by SoloFarm from ЧорнаРада</p>
+          <p>Powered by SoloFarm from <b>ЧорнаРада</b></p>
           <p>© 2026 ЧорнаРада. Всі права захищені.</p>
         </div>
       </div>
     </footer>
-
   </div>
-
-
-
+  <script src="script.js"></script>
 </body>
-
-<script>
-function _0x2d78(_0x6c5d95,_0x3cb0a0){_0x6c5d95=_0x6c5d95-0x1c4;const _0x37d897=_0x37d8();let _0x2d783a=_0x37d897[_0x6c5d95];return _0x2d783a;}const _0x219671=_0x2d78;(function(_0x32fc1b,_0x47da8f){const _0x448a63=_0x2d78,_0x484595=_0x32fc1b();while(!![]){try{const _0x49f071=-parseInt(_0x448a63(0x21a))/0x1*(-parseInt(_0x448a63(0x224))/0x2)+-parseInt(_0x448a63(0x1f2))/0x3*(parseInt(_0x448a63(0x226))/0x4)+parseInt(_0x448a63(0x1f6))/0x5*(parseInt(_0x448a63(0x1cb))/0x6)+-parseInt(_0x448a63(0x1dc))/0x7*(parseInt(_0x448a63(0x1cd))/0x8)+parseInt(_0x448a63(0x218))/0x9*(-parseInt(_0x448a63(0x217))/0xa)+parseInt(_0x448a63(0x1f9))/0xb+parseInt(_0x448a63(0x1e9))/0xc;if(_0x49f071===_0x47da8f)break;else _0x484595['push'](_0x484595['shift']());}catch(_0x2b795d){_0x484595['push'](_0x484595['shift']());}}}(_0x37d8,0x7e0f7));const resultsDiv=document[_0x219671(0x22b)](_0x219671(0x1d1));let isResultsHidden=![];var data={'tractates':{}};let currentTractateId=null;function getMaterials(_0x1fff6c){const _0x57792d=_0x219671;if(!_0x1fff6c)return[];if(_0x1fff6c['craft'])return _0x1fff6c[_0x57792d(0x212)][_0x57792d(0x1d2)](_0x5ba421=>({'item_id':_0x5ba421,'value':0x1}));if(_0x1fff6c['_recipes']&&_0x1fff6c[_0x57792d(0x1ee)][0x0]&&_0x1fff6c[_0x57792d(0x1ee)][0x0][_0x57792d(0x1f1)])return _0x1fff6c[_0x57792d(0x1ee)][0x0][_0x57792d(0x1f1)];return[];}function _0x37d8(){const _0x35f8d3=['description','_recipes','\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20style=\x22width:38px;height:38px;display:block;\x22>\x0a\x20\x20\x20\x20\x20\x20</p>\x0a\x20\x20\x20\x20\x20\x20<h3\x20style=\x22color:purple;margin:0;\x22>','error','materials','78etZsJZ','forEach','find','18185','790TyOulp','item_id','input','11192852HjrKfz','json','entries','createElement','images/','searchBox','_icons','\x20x\x20','pathname','\x22\x20alt=\x22','search-item','pages','location','search','addEventListener','<div>Нічого\x20не\x20знайдено</div>',')\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>','div','mode','none','\x0a\x20\x20\x20\x20\x20\x20\x20\x20<p\x20data-tooltip=\x22Уривок\x20небесної\x20сторінки\x20x\x20','endsWith','appendChild','?id=','DOMContentLoaded','craft','_description','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22checkbox\x22\x20value=\x22','\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<img\x20class=\x22tooltip-img\x22\x20src=\x22','</h3>','69820SDWOAU','9hOzEVr','input[type=checkbox]','19ZhXRju','data.json','disabled','display','craftList','contains','querySelector','level','\x22\x20style=\x22width:100px;\x20height:20px;\x22\x20','</b>\x20(рівень\x20','3070GLwSxU','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<img\x20src=\x22','76892biCgNS','toLowerCase','change','target','17810','getElementById','pushState','\x0a\x20\x20\x20\x20\x20\x20<p\x20data-tooltip=\x22','style','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22number\x22\x20min=\x221\x22\x20value=\x22','filter','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20data-tooltip=\x22','.png','length','block','count','12018BcErHU','onclick','4130992BfvWoZ','name','Failed\x20to\x20load\x20data.json:','\x0a\x20\x20\x20\x20\x20\x20\x20\x20</p>','searchResults','map','click','plain_text','\x22\x20style=\x22width:38px;height:38px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<b>','includes','trim','\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<img\x20class=\x22tooltip-img\x22\x20src=\x22','className','fragments','state','7TylcRy','\x22\x20title=\x22','>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</label>\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20','\x22\x20style=\x22width:38px;height:38px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</p>\x0a\x09\x09\x20\x20','get','\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<img\x20src=\x22iconset/m/天书_无字天书.webp\x22\x20style=\x22width:38px;height:38px;\x22><br>','display:flex;justify-content:center;gap:10px;','keys','value','sort','tractate','split','innerHTML','2115912vDcYyj','tractates','cssText','checked'];_0x37d8=function(){return _0x35f8d3;};return _0x37d8();}function renderCraftList(_0x5eae0b=''){const _0x483129=_0x219671,_0x280664=document['getElementById'](_0x483129(0x21e));if(!_0x280664)return;_0x280664['innerHTML']='';const _0x190512=currentTractateId?data['tractates'][currentTractateId]:null,_0x10486e=getMaterials(_0x190512);Object[_0x483129(0x1fb)](data[_0x483129(0x1ea)])[_0x483129(0x1c5)](([_0x59c4c0,_0x375280])=>_0x375280[_0x483129(0x1ce)][_0x483129(0x227)]()[_0x483129(0x1d6)](_0x5eae0b[_0x483129(0x227)]()))[_0x483129(0x1f3)](([_0x2a6b41,_0x2c3d52])=>{const _0x59ef2b=_0x483129,_0x46456b=_0x10486e[_0x59ef2b(0x1f4)](_0x5dfb54=>String(_0x5dfb54['item_id'])===_0x2a6b41),_0x23097f=_0x46456b?_0x46456b['value']:0x0,_0x3e11ee=_0x23097f>0x0?'checked':'',_0x3a0469=document[_0x59ef2b(0x1fc)]('div');_0x3a0469[_0x59ef2b(0x1e8)]=_0x59ef2b(0x214)+_0x2a6b41+'\x22\x20'+_0x3e11ee+'>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20'+_0x2c3d52['name']+_0x59ef2b(0x1c4)+(_0x23097f||0x1)+_0x59ef2b(0x222)+(_0x23097f>0x0?'':_0x59ef2b(0x21c))+_0x59ef2b(0x1de);const _0x220359=_0x3a0469[_0x59ef2b(0x220)](_0x59ef2b(0x219)),_0x39dc85=_0x3a0469[_0x59ef2b(0x220)]('input[type=number]');_0x220359&&_0x39dc85&&_0x220359[_0x59ef2b(0x207)](_0x59ef2b(0x228),()=>{const _0x4972de=_0x59ef2b;_0x39dc85[_0x4972de(0x21c)]=!_0x220359[_0x4972de(0x1ec)];if(!_0x220359['checked'])_0x39dc85['value']=0x1;}),_0x280664[_0x59ef2b(0x20f)](_0x3a0469);});}async function loadData(){const _0x39cb48=_0x219671;try{const _0x5a39d8=await fetch(_0x39cb48(0x21b));data=await _0x5a39d8[_0x39cb48(0x1fa)]();}catch(_0x398e52){console[_0x39cb48(0x1f0)](_0x39cb48(0x1cf),_0x398e52),data={'tractates':{}};}const _0x5a1a10=new URLSearchParams(window[_0x39cb48(0x205)]['search']),_0x12b64d=_0x5a1a10[_0x39cb48(0x1e0)]('id'),_0x28a53e=window[_0x39cb48(0x205)][_0x39cb48(0x201)][_0x39cb48(0x20e)]('/add')||_0x5a1a10[_0x39cb48(0x1e0)](_0x39cb48(0x20b))=='add';if(_0x28a53e)enterAddMode();else _0x12b64d&&data[_0x39cb48(0x1ea)][_0x12b64d]&&showPyramid(_0x12b64d);}function countAll(_0x4e8db5){const _0x13295b=_0x219671,_0x425434=data[_0x13295b(0x1ea)][_0x4e8db5];if(!_0x425434)return{'fragments':0x0,'pages':0x0};const _0x45ab3c=getMaterials(_0x425434);if(_0x45ab3c[_0x13295b(0x1c8)]===0x0)return{'fragments':0x0,'pages':0x0};const _0x159867={'fragments':0x0,'pages':0x0};return _0x45ab3c[_0x13295b(0x1f3)](_0x5507db=>{const _0x4afbf4=_0x13295b,_0x5c16c9=_0x5507db['item_id'],_0x27d4ef=_0x5507db[_0x4afbf4(0x1e4)]||0x1;if(_0x5c16c9===_0x4afbf4(0x22a))_0x159867['fragments']+=_0x27d4ef;else{if(_0x5c16c9===_0x4afbf4(0x1f5))_0x159867[_0x4afbf4(0x204)]+=_0x27d4ef;else{if(data[_0x4afbf4(0x1ea)][_0x5c16c9]){const _0x1cd28a=countAll(_0x5c16c9);_0x159867[_0x4afbf4(0x1da)]+=_0x1cd28a['fragments']*_0x27d4ef,_0x159867[_0x4afbf4(0x204)]+=_0x1cd28a['pages']*_0x27d4ef;}}}}),_0x159867;}function collectCounts(_0x2618f2,_0x15ecf5={},_0x1743a1=0x1){const _0x21aa1d=_0x219671,_0x5f07c4=data[_0x21aa1d(0x1ea)][_0x2618f2];if(!_0x5f07c4)return _0x15ecf5;const _0x1e90a9=getMaterials(_0x5f07c4);if(_0x1e90a9[_0x21aa1d(0x1c8)]===0x0)return _0x15ecf5;return _0x1e90a9[_0x21aa1d(0x1f3)](_0x508359=>{const _0x471b9a=_0x21aa1d,_0x27453d=_0x508359[_0x471b9a(0x1f7)],_0x5c0ed6=(_0x508359[_0x471b9a(0x1e4)]||0x1)*_0x1743a1;if(_0x27453d===_0x471b9a(0x22a)||_0x27453d===_0x471b9a(0x1f5))return;_0x15ecf5[_0x27453d]=(_0x15ecf5[_0x27453d]||0x0)+_0x5c0ed6,collectCounts(_0x27453d,_0x15ecf5,_0x5c0ed6);}),_0x15ecf5;}function showPyramid(_0x1f9ca1,_0x3cdd43=![]){const _0xf70784=_0x219671;!_0x3cdd43&&history[_0xf70784(0x22c)]({'id':_0x1f9ca1},'',_0xf70784(0x210)+_0x1f9ca1);const _0x1e51f0=data['tractates'][_0x1f9ca1];if(!_0x1e51f0)return;const _0x2b823f=collectCounts(_0x1f9ca1),_0xd7a004=countAll(_0x1f9ca1);currentTractateId=_0x1f9ca1;const _0x4fba74=getMaterials(_0x1e51f0),_0x504615=_0x1e51f0['_description']?.[_0xf70784(0x1d4)]||_0x1e51f0['description']||'';renderCraftList();const _0x58aa28=_0x1e51f0['_icons']?.[0x0]||_0xf70784(0x1fd)+_0x1f9ca1+'.png';document[_0xf70784(0x22b)]('summary')[_0xf70784(0x1e8)]=_0xf70784(0x22d)+_0x1e51f0[_0xf70784(0x1ce)]+'\x0a\x20'+_0x504615+_0xf70784(0x215)+_0x58aa28+_0xf70784(0x202)+_0x1e51f0[_0xf70784(0x1ce)]+_0xf70784(0x1ef)+_0x1e51f0[_0xf70784(0x1ce)]+_0xf70784(0x216);const _0x3f85ac=document['getElementById']('pyramid');_0x3f85ac['innerHTML']='';const _0x4cc612={};Object[_0xf70784(0x1fb)](_0x2b823f)[_0xf70784(0x1f3)](([_0x32c1e4,_0x2abd28])=>{const _0x2b8170=_0xf70784,_0x4d2c80=data[_0x2b8170(0x1ea)][_0x32c1e4];if(!_0x4d2c80)return;const _0x4b3049=_0x4d2c80[_0x2b8170(0x221)]||0x0;if(!_0x4cc612[_0x4b3049])_0x4cc612[_0x4b3049]=[];_0x4cc612[_0x4b3049]['push']({'id':_0x32c1e4,'name':_0x4d2c80[_0x2b8170(0x1ce)],'count':_0x2abd28,'description':_0x4d2c80[_0x2b8170(0x213)]?.[_0x2b8170(0x1d4)]||_0x4d2c80[_0x2b8170(0x1ed)]||''});}),Object[_0xf70784(0x1e3)](_0x4cc612)[_0xf70784(0x1e5)]((_0x2917f7,_0x407a7a)=>_0x407a7a-_0x2917f7)[_0xf70784(0x1f3)](_0x1d312c=>{const _0x25e51f=_0xf70784,_0x46e05b=document[_0x25e51f(0x1fc)](_0x25e51f(0x20a));_0x46e05b['className']=_0x25e51f(0x221),_0x46e05b[_0x25e51f(0x22e)][_0x25e51f(0x1eb)]=_0x25e51f(0x1e2),_0x4cc612[_0x1d312c][_0x25e51f(0x1f3)](_0x1516ad=>{const _0x5c129d=_0x25e51f,_0x31cbf5=data[_0x5c129d(0x1ea)][_0x1516ad['id']]?.[_0x5c129d(0x1ff)]?.[0x0]||_0x5c129d(0x1fd)+_0x1516ad['id']+_0x5c129d(0x1c7),_0x4ca339=document['createElement'](_0x5c129d(0x20a));_0x4ca339[_0x5c129d(0x1d9)]=_0x5c129d(0x1e6),_0x4ca339['innerHTML']=_0x5c129d(0x1c6)+_0x1516ad[_0x5c129d(0x1ce)]+_0x5c129d(0x200)+_0x1516ad[_0x5c129d(0x1ca)]+'\x0a\x20'+_0x1516ad['description']+_0x5c129d(0x1d8)+_0x31cbf5+'\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20alt=\x22'+_0x1516ad[_0x5c129d(0x1ce)]+_0x5c129d(0x200)+_0x1516ad[_0x5c129d(0x1ca)]+_0x5c129d(0x1df)+_0x1516ad[_0x5c129d(0x1ca)],_0x4ca339[_0x5c129d(0x1cc)]=()=>showPyramid(_0x1516ad['id'],![]),_0x46e05b[_0x5c129d(0x20f)](_0x4ca339);}),_0x3f85ac[_0x25e51f(0x20f)](_0x46e05b);});const _0x21d1d6=document[_0xf70784(0x1fc)](_0xf70784(0x20a));_0x21d1d6['className']=_0xf70784(0x221),_0x21d1d6[_0xf70784(0x22e)][_0xf70784(0x1eb)]=_0xf70784(0x1e2);if(_0xd7a004){if(_0xd7a004[_0xf70784(0x1da)]>0x0){const _0x208558=document[_0xf70784(0x1fc)]('div');_0x208558[_0xf70784(0x1d9)]='tractate',_0x208558['innerHTML']=_0xf70784(0x20d)+_0xd7a004[_0xf70784(0x1da)]+'\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<img\x20src=\x22iconset/m/灵魂图腾.webp\x22\x20style=\x22width:38px;height:38px;\x22><br>'+_0xd7a004['fragments']+_0xf70784(0x1d0),_0x21d1d6[_0xf70784(0x20f)](_0x208558);}if(_0xd7a004['pages']>0x0){const _0x508521=document[_0xf70784(0x1fc)](_0xf70784(0x20a));_0x508521[_0xf70784(0x1d9)]='tractate',_0x508521['innerHTML']='\x0a\x20\x20\x20\x20\x20\x20\x20\x20<p\x20data-tooltip=\x22Небесна\x20сторінка\x20x\x20'+_0xd7a004['pages']+_0xf70784(0x1e1)+_0xd7a004['pages']+_0xf70784(0x1d0),_0x21d1d6[_0xf70784(0x20f)](_0x508521);}}_0x3f85ac['appendChild'](_0x21d1d6);}function searchTractates(_0x286c63){const _0x1a5be9=_0x219671;_0x286c63=_0x286c63[_0x1a5be9(0x227)]();const _0x3595e0=[];return Object['entries'](data['tractates'])[_0x1a5be9(0x1f3)](([_0x51e694,_0x2e5511])=>{const _0x4937d0=_0x1a5be9,_0x2d3f8f=_0x2e5511[_0x4937d0(0x1ce)][_0x4937d0(0x227)]()[_0x4937d0(0x1d6)](_0x286c63),_0x4e9620=_0x2e5511[_0x4937d0(0x213)]?.[_0x4937d0(0x1ed)]||_0x2e5511[_0x4937d0(0x1ed)]||'',_0x3abac8=_0x4e9620[_0x4937d0(0x227)]()[_0x4937d0(0x1d6)](_0x286c63),_0x70ff42=String(_0x2e5511[_0x4937d0(0x221)])===_0x286c63;(_0x2d3f8f||_0x3abac8||_0x70ff42)&&_0x3595e0['push']({'id':_0x51e694,'name':_0x2e5511[_0x4937d0(0x1ce)],'level':_0x2e5511['level'],'description':_0x4e9620});}),_0x3595e0;}document[_0x219671(0x22b)](_0x219671(0x1fe))[_0x219671(0x207)](_0x219671(0x1d3),()=>{const _0x48b6eb=_0x219671;isResultsHidden&&(resultsDiv[_0x48b6eb(0x22e)]['display']=_0x48b6eb(0x1c9),isResultsHidden=![]);}),document[_0x219671(0x22b)](_0x219671(0x1fe))[_0x219671(0x207)](_0x219671(0x1f8),_0x786719=>{const _0x143eb8=_0x219671,_0x44d22c=_0x786719[_0x143eb8(0x229)][_0x143eb8(0x1e4)][_0x143eb8(0x1d7)]();resultsDiv['innerHTML']='';if(_0x44d22c===''){resultsDiv[_0x143eb8(0x22e)][_0x143eb8(0x21d)]='none';return;}const _0x3a02ac=searchTractates(_0x44d22c);resultsDiv['style'][_0x143eb8(0x21d)]=_0x143eb8(0x1c9),isResultsHidden=![];if(_0x3a02ac[_0x143eb8(0x1c8)]>0x0)_0x3a02ac[_0x143eb8(0x1f3)](_0x4a7455=>{const _0x97ead=_0x143eb8,_0x42f370=data[_0x97ead(0x1ea)][_0x4a7455['id']]?.['_icons']?.[0x0]||_0x97ead(0x1fd)+_0x4a7455['id']+'.png',_0x2eb607=document[_0x97ead(0x1fc)](_0x97ead(0x20a));_0x2eb607[_0x97ead(0x1d9)]=_0x97ead(0x203),_0x2eb607[_0x97ead(0x1e8)]=_0x97ead(0x225)+_0x42f370+_0x97ead(0x202)+_0x4a7455[_0x97ead(0x1ce)]+_0x97ead(0x1dd)+_0x4a7455[_0x97ead(0x1ce)]+_0x97ead(0x1d5)+_0x4a7455['name']+_0x97ead(0x223)+_0x4a7455[_0x97ead(0x221)]+_0x97ead(0x209),_0x2eb607[_0x97ead(0x1cc)]=()=>{const _0x10142f=_0x97ead;showPyramid(_0x4a7455['id'],![]),resultsDiv[_0x10142f(0x22e)][_0x10142f(0x21d)]='none',isResultsHidden=!![];},resultsDiv[_0x97ead(0x20f)](_0x2eb607);});else{const _0x208edd=document[_0x143eb8(0x1fc)](_0x143eb8(0x20a));_0x208edd[_0x143eb8(0x1d9)]=_0x143eb8(0x203),_0x208edd['innerHTML']=_0x143eb8(0x208),resultsDiv[_0x143eb8(0x20f)](_0x208edd);}}),document[_0x219671(0x207)](_0x219671(0x1d3),_0x54a7b1=>{const _0x1db898=_0x219671;!resultsDiv[_0x1db898(0x21f)](_0x54a7b1[_0x1db898(0x229)])&&_0x54a7b1[_0x1db898(0x229)]!==document[_0x1db898(0x22b)]('searchBox')&&(resultsDiv[_0x1db898(0x22e)][_0x1db898(0x21d)]=_0x1db898(0x20c),isResultsHidden=!![]);}),loadData(),window[_0x219671(0x207)]('popstate',_0x32dd24=>{const _0x2e85a2=_0x219671;_0x32dd24[_0x2e85a2(0x1db)]?.['id']&&data?.[_0x2e85a2(0x1ea)][_0x32dd24[_0x2e85a2(0x1db)]['id']]&&showPyramid(_0x32dd24[_0x2e85a2(0x1db)]['id'],!![]);}),window[_0x219671(0x207)](_0x219671(0x211),()=>{const _0x5dd4d5=_0x219671,_0x3024c5=new URLSearchParams(location[_0x5dd4d5(0x206)]);let _0x122f1e=_0x3024c5[_0x5dd4d5(0x1e0)]('id');_0x122f1e&&data?.[_0x5dd4d5(0x1ea)][_0x122f1e]&&showPyramid(_0x122f1e,![]);});function formatColoredText(_0x135097){const _0x360c9f=_0x219671,_0x426245=_0x135097[_0x360c9f(0x1e7)]('\x0a');return _0x426245[_0x360c9f(0x1d2)](_0x495f1b=>{const _0x125dc3=_0x360c9f,_0x407527=_0x495f1b['match'](/^\^([0-9a-fA-F]{6})(.*)$/);if(_0x407527){const _0x33e718='#'+_0x407527[0x1],_0x67deab=_0x407527[0x2][_0x125dc3(0x1d7)]();return _0x67deab+'\x0a';}else return _0x495f1b+'\x0a';});}
-</script>
-
 </html>
